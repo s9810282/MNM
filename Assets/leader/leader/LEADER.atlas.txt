@@ -1,0 +1,384 @@
+
+LEADER.png
+size: 2033,1778
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Expressionless
+  rotate: false
+  xy: 1261, 2
+  size: 44, 14
+  orig: 46, 16
+  offset: 1, 1
+  index: -1
+Wedge
+  rotate: true
+  xy: 1625, 209
+  size: 234, 224
+  orig: 234, 224
+  offset: 0, 0
+  index: -1
+acc
+  rotate: false
+  xy: 1261, 55
+  size: 139, 154
+  orig: 141, 163
+  offset: 1, 1
+  index: -1
+back hair
+  rotate: true
+  xy: 1439, 959
+  size: 340, 486
+  orig: 340, 486
+  offset: 0, 0
+  index: -1
+eyebrow1
+  rotate: false
+  xy: 1959, 548
+  size: 55, 45
+  orig: 58, 48
+  offset: 2, 2
+  index: -1
+eyebrow1 left
+  rotate: false
+  xy: 1263, 222
+  size: 60, 21
+  orig: 63, 24
+  offset: 2, 2
+  index: -1
+eyebrow2
+  rotate: true
+  xy: 877, 465
+  size: 56, 18
+  orig: 59, 22
+  offset: 1, 2
+  index: -1
+eyebrow2 left
+  rotate: false
+  xy: 1333, 27
+  size: 50, 26
+  orig: 54, 30
+  offset: 2, 2
+  index: -1
+eyebrow3
+  rotate: false
+  xy: 1263, 211
+  size: 56, 9
+  orig: 60, 13
+  offset: 2, 2
+  index: -1
+eyebrow3 left
+  rotate: false
+  xy: 550, 510
+  size: 57, 11
+  orig: 60, 15
+  offset: 1, 2
+  index: -1
+fornt bang
+  rotate: true
+  xy: 1747, 455
+  size: 185, 210
+  orig: 185, 210
+  offset: 0, 0
+  index: -1
+hair
+  rotate: false
+  xy: 2, 10
+  size: 338, 490
+  orig: 338, 490
+  offset: 0, 0
+  index: -1
+head
+  rotate: true
+  xy: 1349, 211
+  size: 232, 274
+  orig: 234, 276
+  offset: 1, 1
+  index: -1
+knee_right
+  rotate: true
+  xy: 910, 465
+  size: 180, 443
+  orig: 180, 443
+  offset: 0, 0
+  index: -1
+left arm
+  rotate: false
+  xy: 687, 229
+  size: 188, 292
+  orig: 188, 292
+  offset: 0, 0
+  index: -1
+left bang
+  rotate: true
+  xy: 1402, 111
+  size: 98, 183
+  orig: 98, 183
+  offset: 0, 0
+  index: -1
+left cloak
+  rotate: true
+  xy: 896, 1301
+  size: 475, 998
+  orig: 475, 998
+  offset: 0, 0
+  index: -1
+left down eye
+  rotate: false
+  xy: 534, 28
+  size: 57, 22
+  orig: 60, 26
+  offset: 2, 2
+  index: -1
+left down eye 복사
+  rotate: false
+  xy: 1203, 220
+  size: 58, 23
+  orig: 60, 26
+  offset: 1, 2
+  index: -1
+left eye half
+  rotate: false
+  xy: 534, 52
+  size: 70, 42
+  orig: 73, 44
+  offset: 2, 1
+  index: -1
+left eyehole
+  rotate: false
+  xy: 1959, 499
+  size: 53, 47
+  orig: 58, 51
+  offset: 4, 1
+  index: -1
+left eyelash
+  rotate: false
+  xy: 1261, 18
+  size: 70, 35
+  orig: 73, 38
+  offset: 2, 2
+  index: -1
+left foot
+  rotate: false
+  xy: 1125, 4
+  size: 134, 214
+  orig: 137, 217
+  offset: 1, 2
+  index: -1
+left hair
+  rotate: true
+  xy: 1439, 642
+  size: 315, 432
+  orig: 315, 432
+  offset: 0, 0
+  index: -1
+left hair back
+  rotate: true
+  xy: 910, 647
+  size: 273, 494
+  orig: 273, 494
+  offset: 0, 0
+  index: -1
+left hand
+  rotate: true
+  xy: 1873, 644
+  size: 143, 152
+  orig: 146, 155
+  offset: 1, 1
+  index: -1
+left knee
+  rotate: false
+  xy: 342, 21
+  size: 190, 479
+  orig: 190, 479
+  offset: 0, 0
+  index: -1
+left leg
+  rotate: false
+  xy: 1896, 1414
+  size: 131, 362
+  orig: 131, 362
+  offset: 0, 0
+  index: -1
+left shoulder
+  rotate: false
+  xy: 1851, 177
+  size: 109, 276
+  orig: 109, 276
+  offset: 0, 0
+  index: -1
+left underlash
+  rotate: true
+  xy: 1406, 868
+  size: 52, 31
+  orig: 56, 35
+  offset: 2, 2
+  index: -1
+left_pupil
+  rotate: false
+  xy: 1959, 459
+  size: 37, 38
+  orig: 40, 41
+  offset: 2, 2
+  index: -1
+neck
+  rotate: false
+  xy: 1587, 92
+  size: 156, 115
+  orig: 158, 117
+  offset: 1, 1
+  index: -1
+nomal
+  rotate: true
+  xy: 897, 472
+  size: 49, 11
+  orig: 51, 13
+  offset: 1, 1
+  index: -1
+nose
+  rotate: false
+  xy: 1896, 1376
+  size: 29, 36
+  orig: 29, 36
+  offset: 0, 0
+  index: -1
+ribbon
+  rotate: false
+  xy: 1927, 1032
+  size: 57, 380
+  orig: 57, 380
+  offset: 0, 0
+  index: -1
+ribbon2
+  rotate: false
+  xy: 1986, 1025
+  size: 45, 387
+  orig: 45, 387
+  offset: 0, 0
+  index: -1
+ribbon3
+  rotate: false
+  xy: 1745, 88
+  size: 90, 119
+  orig: 90, 119
+  offset: 0, 0
+  index: -1
+right arm
+  rotate: true
+  xy: 877, 220
+  size: 243, 324
+  orig: 246, 326
+  offset: 1, 1
+  index: -1
+right bang
+  rotate: false
+  xy: 877, 7
+  size: 246, 211
+  orig: 246, 211
+  offset: 0, 0
+  index: -1
+right cloak
+  rotate: true
+  xy: 1873, 789
+  size: 168, 158
+  orig: 170, 160
+  offset: 1, 1
+  index: -1
+right cloak 복사
+  rotate: true
+  xy: 896, 922
+  size: 377, 541
+  orig: 377, 541
+  offset: 0, 0
+  index: -1
+right eyehole
+  rotate: false
+  xy: 1959, 595
+  size: 56, 47
+  orig: 58, 49
+  offset: 1, 1
+  index: -1
+right eyehole 복사
+  rotate: true
+  xy: 1927, 962
+  size: 68, 40
+  orig: 70, 42
+  offset: 1, 1
+  index: -1
+right eyelash
+  rotate: false
+  xy: 1402, 73
+  size: 68, 36
+  orig: 70, 38
+  offset: 1, 1
+  index: -1
+right foot
+  rotate: false
+  xy: 1203, 245
+  size: 144, 218
+  orig: 147, 221
+  offset: 2, 2
+  index: -1
+right hair
+  rotate: true
+  xy: 1355, 445
+  size: 195, 390
+  orig: 195, 390
+  offset: 0, 0
+  index: -1
+right leg
+  rotate: false
+  xy: 534, 96
+  size: 151, 404
+  orig: 158, 404
+  offset: 0, 0
+  index: -1
+right pupil
+  rotate: false
+  xy: 1472, 74
+  size: 35, 35
+  orig: 37, 37
+  offset: 1, 1
+  index: -1
+right shoulder
+  rotate: false
+  xy: 687, 51
+  size: 188, 176
+  orig: 191, 178
+  offset: 2, 1
+  index: -1
+right underlash
+  rotate: false
+  xy: 606, 59
+  size: 50, 35
+  orig: 52, 37
+  offset: 1, 1
+  index: -1
+skrit
+  rotate: false
+  xy: 2, 502
+  size: 546, 381
+  orig: 546, 381
+  offset: 0, 0
+  index: -1
+smile
+  rotate: true
+  xy: 1406, 803
+  size: 63, 25
+  orig: 65, 27
+  offset: 1, 1
+  index: -1
+top
+  rotate: false
+  xy: 550, 523
+  size: 358, 360
+  orig: 360, 362
+  offset: 1, 1
+  index: -1
+레이어 1
+  rotate: false
+  xy: 2, 885
+  size: 892, 891
+  orig: 892, 891
+  offset: 0, 0
+  index: -1
