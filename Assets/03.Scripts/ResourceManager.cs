@@ -20,7 +20,9 @@ public class ResourceManager : MonoBehaviour
 
     [Header("Character")]
 
-    [SerializeField] GameObject spineCharacter;
+    [SerializeField] SkeletonGraphic[] spineCharacters;
+
+    [SerializeField] SkeletonDataAsset[] skeletonDataAsset;
 
     Fade_InOut fade_InOut;
 
@@ -100,6 +102,8 @@ public class ResourceManager : MonoBehaviour
 
     public void ShowCharacter(string str)
     {
+        //나머지 캐릭터를 받아봐야 어떻게 해야할지 될듯
+        //지금은 case문 구분에 따른 함수 실행만
         //C.L11
         Debug.Log("Show Character");
         StoryManager.Instance.IsNotText = true;
@@ -119,6 +123,21 @@ public class ResourceManager : MonoBehaviour
             position = 1;
         else if (tmpPos == 'R')
             position = 2;
+
+        switch (type)
+        {
+            case '1': //그냥 띄움
+                
+                break;
+
+            case '2': //서서히 띄움
+                StartCoroutine(Character_Type2(position, sprite));
+                break;
+
+            case '3': //서서히 사라짐
+                
+                break;
+        }
     }
 
 
@@ -165,11 +184,6 @@ public class ResourceManager : MonoBehaviour
 
         fade_InOut.FadeOut(this, spritesPos[showpos]);
 
-        yield return new WaitForSeconds(0.1f);
-
-        StoryManager.Instance.IsNotText = false;
-        StoryManager.Instance.IsLineEnd = true;
-
         yield return new WaitUntil(() => StoryManager.Instance.IsFadeEnd);
 
         Vector2 size = new Vector2(sprites[showSprite].rect.width, sprites[showSprite].rect.height);
@@ -177,9 +191,14 @@ public class ResourceManager : MonoBehaviour
 
         spritesPos[showpos].sprite = sprites[showSprite]; //fade로 사라지고 투명색으로 교체
         spritesPos[showpos].color = new Color(255, 255, 255, 255);
+      
+        yield return new WaitForSeconds(0.1f);
+
+        StoryManager.Instance.IsNotText = false;
+        StoryManager.Instance.IsLineEnd = true;
+
 
     } //이미지를 서서히 지움
-    
 
     public IEnumerator BackGround_Type2(int showSprite)
     {
@@ -193,4 +212,17 @@ public class ResourceManager : MonoBehaviour
         yield return new WaitUntil(() => StoryManager.Instance.IsFadeEnd);
 
     }
+
+    public IEnumerator Character_Type2(int showPos, int showCharacter)
+    {
+        spineCharacters[showPos].skeletonDataAsset = skeletonDataAsset[showCharacter];
+        spineCharacters[showPos].gameObject.SetActive(true);
+
+        fade_InOut.FadeIn(this, spineCharacters[showPos], 0.75f);
+
+        yield return new WaitForSeconds(0.1f);
+
+        StoryManager.Instance.IsNotText = false;
+        StoryManager.Instance.IsLineEnd = true;
+    } //캐릭터를 서서히 띄움
 }

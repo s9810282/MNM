@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Spine.Unity;
 
 public class Fade_InOut
 {
@@ -18,7 +19,19 @@ public class Fade_InOut
         player.StartCoroutine(FadeIn(fadeObj));
     }
 
+    public void FadeIn(MonoBehaviour player, SkeletonGraphic fadeObj, float _time = 1.5f)  //씬을 시작할 때 씬에서 FadeBackGround가 터치를 막으므로 몇초 뒤에 false 시킨다
+    {
+        animtime = _time;
+        player.StartCoroutine(FadeIn(fadeObj));
+    }
+
     public void FadeOut(MonoBehaviour player, Image fadeObj, float _time = 1.5f)  //씬을 시작할 때 씬에서 FadeBackGround가 터치를 막으므로 몇초 뒤에 false 시킨다
+    {
+        animtime = _time;
+        player.StartCoroutine(FadeOut(fadeObj));
+    }
+
+    public void FadeOut(MonoBehaviour player, SkeletonGraphic fadeObj, float _time = 1.5f)  //씬을 시작할 때 씬에서 FadeBackGround가 터치를 막으므로 몇초 뒤에 false 시킨다
     {
         animtime = _time;
         player.StartCoroutine(FadeOut(fadeObj));
@@ -90,7 +103,7 @@ public class Fade_InOut
 
     }  //배경이 사라짐
 
-    IEnumerator FadeIn(Material fadeobj)
+    IEnumerator FadeIn(SkeletonGraphic fadeobj)
     {
         StoryManager.Instance.IsFadeEnd = false;
 
@@ -116,7 +129,7 @@ public class Fade_InOut
         ;
     }  //캐릭터가 나타남
 
-    IEnumerator FadeOut(Material fadeobj)
+    IEnumerator FadeOut(SkeletonGraphic fadeobj)
     {
         StoryManager.Instance.IsFadeEnd = false;
 
