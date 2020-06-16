@@ -19,11 +19,8 @@ public class ResourceManager : MonoBehaviour
     [SerializeField] Sprite[] backGroundSprites;
 
     [Header("Character")]
-    [SerializeField] MeshRenderer[] characterMesh;
 
-    [SerializeField] Material[] material;
-
-    [SerializeField] SkeletonDataAsset[] skeletonDataAssets; 
+    [SerializeField] GameObject spineCharacter;
 
     Fade_InOut fade_InOut;
 
@@ -61,8 +58,6 @@ public class ResourceManager : MonoBehaviour
             position = 1;
         else if (tmpPos == 'R')
             position = 2;
-        else if (tmpPos == 'B')
-            position = 3;
 
         switch (type)
         {
@@ -105,9 +100,25 @@ public class ResourceManager : MonoBehaviour
 
     public void ShowCharacter(string str)
     {
+        //C.L11
+        Debug.Log("Show Character");
         StoryManager.Instance.IsNotText = true;
 
-        
+        char tmpPos = str[2]; //C
+        int position = 0; //M
+
+        string tmpSprite = str[3].ToString();
+        int sprite = int.Parse(tmpSprite); //1
+
+        char type = str[4]; //1
+
+
+        if (tmpPos == 'M')
+            position = 0;
+        else if (tmpPos == 'L')
+            position = 1;
+        else if (tmpPos == 'R')
+            position = 2;
     }
 
 

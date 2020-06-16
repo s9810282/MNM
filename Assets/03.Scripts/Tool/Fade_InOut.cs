@@ -90,6 +90,58 @@ public class Fade_InOut
 
     }  //배경이 사라짐
 
+    IEnumerator FadeIn(Material fadeobj)
+    {
+        StoryManager.Instance.IsFadeEnd = false;
+
+        start = 0;
+        end = 1;
+        time = 0;
+
+        Color color = fadeobj.color;
+        color.a = Mathf.Lerp(start, end, time);
+
+        while (color.a < 1f)
+        {
+            time += Time.deltaTime / animtime;
+
+            color.a = Mathf.Lerp(start, end, time);
+
+            fadeobj.color = color;
+
+            yield return null;
+        }
+
+        StoryManager.Instance.IsFadeEnd = true;
+        ;
+    }  //캐릭터가 나타남
+
+    IEnumerator FadeOut(Material fadeobj)
+    {
+        StoryManager.Instance.IsFadeEnd = false;
+
+        start = 1;
+        end = 0;
+        time = 0;
+
+        Color color = fadeobj.color;
+        color.a = Mathf.Lerp(start, end, time);
+
+        while (color.a > 0f)
+        {
+            time += Time.deltaTime / animtime;
+
+            color.a = Mathf.Lerp(start, end, time);
+
+            fadeobj.color = color;
+
+            yield return null;
+        }
+
+        StoryManager.Instance.IsFadeEnd = true;
+
+    }  //캐릭터가 사라짐
+
     IEnumerator MoveScene(MonoBehaviour player, Image fadeObj, string name, float waitTime)
     {
         player.StartCoroutine(FadeIn(fadeObj));

@@ -1353,7 +1353,6 @@ MonoBehaviour:
   - {fileID: 1552999748}
   - {fileID: 804267349}
   - {fileID: 65386072}
-  - {fileID: 590691104}
   sprites:
   - {fileID: 21300000, guid: bcc8e828bc634d4479f0169d85a1bdb6, type: 3}
   - {fileID: 21300000, guid: 659ee65135cf5e940923241e1354c33f, type: 3}
@@ -1367,14 +1366,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4d8d270168e21e147b5ab52446db1133, type: 3}
   - {fileID: 21300000, guid: 4d8d270168e21e147b5ab52446db1133, type: 3}
   - {fileID: 21300000, guid: 4d8d270168e21e147b5ab52446db1133, type: 3}
-  characterMesh:
-  - {fileID: 1918779549}
-  - {fileID: 1089104006}
-  - {fileID: 291554734}
-  material:
-  - {fileID: 2100000, guid: 2315347844ffe7248ba0ddf9b4433d1b, type: 2}
-  - {fileID: 0}
-  skeletonDataAssets: []
+  spineCharacter: {fileID: 0}
 --- !u!4 &852265390
 Transform:
   m_ObjectHideFlags: 0
@@ -2781,7 +2773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1918779548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3128,7 +3120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2091319193
 RectTransform:
   m_ObjectHideFlags: 0

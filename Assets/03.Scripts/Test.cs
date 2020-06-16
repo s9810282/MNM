@@ -9,12 +9,30 @@ public class Test : MonoBehaviour
 {
     [SerializeField] SkeletonAnimation skeletonAnimation;
 
+    [SerializeField] SkeletonGraphic skeletonGraphic;
+
+    [SerializeField] SkeletonDataAsset skeletonDataAsset;
+
     [SerializeField] Sprite s;
+
+    [SerializeField] Material m;
+
+    [SerializeField] MeshRenderer me;
 
     [SpineEvent] public string head_turnEventName = "head-turn";
     
     void Start()
     {
+        //transform.GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, 0);
+        //Debug.Log(transform.GetComponent<MeshRenderer>().material.color);
+
+        //me.material = m;
+        //Debug.Log(me.material.name);
+
+        //me.material.color = new Color(0, 0, 0, 0);
+        //Debug.Log(me.material.color);
+
+
         //Debug.Log(s.rect.width);
         //Debug.Log(s.rect.height);
 
@@ -31,16 +49,14 @@ public class Test : MonoBehaviour
         //};
 
 
-        //skeletonAnimation.AnimationState.SetAnimation(0, "head-turn", false);
+        skeletonAnimation.AnimationState.SetAnimation(0, "head-turn", false);
+        skeletonGraphic.AnimationState.SetAnimation(0, "head-turn", false);
+
+        skeletonGraphic.AnimationState.AddAnimation(0, "run", true, 1f);
+        skeletonGraphic.skeletonDataAsset = skeletonDataAsset;
+
+        //skeletonGraphic.color = new Color(0f, 0f, 0f, 0f);
         //skeletonAnimation.AnimationState.SetAnimation(0, "run", false );
-
-        List<Dictionary<string, string>> data = CSVReader.Read("TEST");
-
-        for (int i = 0; i < data.Count; i++)
-        {
-            Debug.Log("TEST EXP : " + data[i]["Character"] + " TEST BONUS : " + data[i]["Text"]);
-        }
-
     }
 
     private void Update()
