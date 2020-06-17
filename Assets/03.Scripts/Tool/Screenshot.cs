@@ -29,7 +29,8 @@ public class Screenshot
 
 
     //마지막으로 찍은 사진의 경로
-    string dataPath;
+    private string dataPath;
+    public string DataPath { get { return dataPath; } set { dataPath = value; } }
 
     private string captureDate;
     public string CaptureDate { get { return captureDate; } set { captureDate = value; } }
@@ -37,8 +38,7 @@ public class Screenshot
     public Texture2D Return_Capture(MonoBehaviour player,string _path)
     {
         dataPath = _path;
-
-        player.StartCoroutine(Testing(_path));
+        player.StartCoroutine(GetPhotoDelay(_path));
    
         return texture;
     }
@@ -59,7 +59,7 @@ public class Screenshot
         return texture;
     }
 
-    IEnumerator Testing(string _path)
+    IEnumerator GetPhotoDelay(string _path)
     {
         Photo(_path);
 

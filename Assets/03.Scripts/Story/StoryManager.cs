@@ -25,9 +25,10 @@ public class StoryManager
     
 
     private int currentLine = 0;
-    //private bool isShowText = false;
     private string fileName;
     private int fileNum;
+
+    private int playTime;
 
     private bool isNewGame = true;
     private bool isNeverSkip = false;
@@ -46,6 +47,8 @@ public class StoryManager
     public int CurrentLine { get { return currentLine; } set { currentLine = value; } }
     public string FileName { get { return fileName; } set { fileName = value; } }
     public int FileNum { get { return fileNum; } set { fileNum = value; } }
+
+    public int PlayTime { get { return playTime; } set { playTime = value; } }
 
     public bool IsNewGame { get { return isNewGame; } set { isNewGame = value; } }
     public bool IsNeverSkip { get { return isNeverSkip; } set { isNeverSkip = value; } }
@@ -73,6 +76,8 @@ public class StoryManager
 
         fileName = string.Empty;
         fileNum = 0;
+
+        playTime = 0;
     }
 
     public List<Dictionary<string, string>> LoadCSV(string _fileName)

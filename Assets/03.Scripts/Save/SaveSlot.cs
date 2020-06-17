@@ -18,6 +18,8 @@ public class SaveSlot : MonoBehaviour
 
     [SerializeField] Text dateText;
 
+    [SerializeField] Text playTimeText;
+
 
     [SerializeField] Button delete_Btn;
 
@@ -44,6 +46,7 @@ public class SaveSlot : MonoBehaviour
         
         scriptText.text = null;
         dateText.text = null;
+        playTimeText.text = null;
 
         _saveData = null;
 
@@ -53,6 +56,14 @@ public class SaveSlot : MonoBehaviour
     //SaveData의 데이터를 슬롯에다가 적용
     public void ApplyData()
     {
+        _SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
+           , StoryManager.Instance.CurrentLine, StoryManager.Instance.CurrentLine);
+
+        //_saveData.captureImagePath = Screenshot.Instance.DataPath;
+        //_saveData.playTime = StoryManager.Instance.PlayTime;
+        //_saveData.csvFileName = StoryManager.Instance.FileName;
+        //_SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
+
         image.texture = Screenshot.Instance.Texture;
 
         dateText.text = Screenshot.Instance.CaptureDate;
@@ -61,6 +72,7 @@ public class SaveSlot : MonoBehaviour
         noData_Slot.gameObject.SetActive(false);
         data_slot.gameObject.SetActive(true);
     }
+
     //데이터를 Load
     public SaveData Load_Data()
     {

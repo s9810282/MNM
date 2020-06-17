@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -47,5 +48,20 @@ public class FileList
                 columns.Clear();
             }
         }
+    }
+
+    public List<Dictionary<string,string>> LoadCSVData()
+    {
+        List<Dictionary<string, string>> saveData = new List<Dictionary<string, string>>();
+        saveData = CSVReader.Read("Binary_Path.csv");
+
+        return saveData;
+    }
+
+    public void LoadBinary()
+    {
+        List<Dictionary<string, string>> saveData = LoadCSVData();
+
+
     }
 }

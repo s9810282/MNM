@@ -202,7 +202,7 @@ public class ResourceManager : MonoBehaviour
 
     public IEnumerator BackGround_Type2(int showSprite)
     {
-        fade_InOut.FadeOut(this,backGround);
+        fade_InOut.FadeOut(this, backGround);
 
         yield return new WaitUntil(() => StoryManager.Instance.IsFadeEnd);
 

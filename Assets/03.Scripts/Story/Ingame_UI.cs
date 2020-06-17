@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Ingame_UI : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class Ingame_UI : MonoBehaviour
 
     [SerializeField] GameObject save_Load_Tab;
 
+
+    [SerializeField] 
     #endregion
 
     bool isOn = true;
@@ -56,7 +59,7 @@ public class Ingame_UI : MonoBehaviour
 
     public void Ingame_Capture()
     {
-        date = System.DateTime.Now.ToString("yyyyMMddHHmmss");
+        date = DateTime.Now.ToString("yyyyMMddHHmmss");
         _path = "_" + date + "_ScreenShot" + ".png";
 
         Debug.Log(_path);
@@ -73,6 +76,7 @@ public class Ingame_UI : MonoBehaviour
     public void OnToolTabs()
     {
         toolTab.gameObject.SetActive(true);
+        PlayerPrefs.Save();
     }
 
 
