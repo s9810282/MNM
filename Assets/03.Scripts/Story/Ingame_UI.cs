@@ -75,15 +75,19 @@ public class Ingame_UI : MonoBehaviour
 
     public void OnToolTabs()
     {
+        StoryManager.Instance.IsTouchUI = true;
         toolTab.gameObject.SetActive(true);
-        PlayerPrefs.Save();
     }
 
+    public void OffToolTabs()
+    {
+        StoryManager.Instance.IsTouchUI = false;
+        toolTab.gameObject.SetActive(false);
+    }
 
     public void OnSaveTab()
     {
         currentToolText.text = "SAVE";
-
         save_Load_Tab.gameObject.SetActive(true);
     }
 

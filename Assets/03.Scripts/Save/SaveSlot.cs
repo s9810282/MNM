@@ -10,6 +10,8 @@ public class SaveSlot : MonoBehaviour
 
     [SerializeField] GameObject noData_Slot;
 
+    [SerializeField] int dataCount;
+
     [Header("Slot Component")]
 
     [SerializeField] RawImage image;
@@ -31,11 +33,19 @@ public class SaveSlot : MonoBehaviour
     private bool isSave;
     public bool IsSave { get { return isSave; } set { isSave = value; } }
 
+    string _path;
+
+
     // Start is called before the first frame update
     void Start()
     {
         isSave = true;
         delete_Btn.onClick.AddListener(DeleteData);
+
+        _path = "/" + dataCount + "_data.dat";
+
+
+
     }
 
     //데이터를 Delete
@@ -50,22 +60,33 @@ public class SaveSlot : MonoBehaviour
 
         _saveData = null;
 
+        FileList.Instance.Binary_Path.Remove(Application.persistentDataPath + _path);
+        FileList.Instance.SaveBinaryPathToCSV();
+        File.Delete(Application.persistlentDataPath + _path);
+
+        UnityEditor.AssetDatabase.Refresh();
+
         data_slot.gameObject.SetActive(false);
         noData_Slot.gameObject.SetActive(true);
     }
     //SaveData의 데이터를 슬롯에다가 적용
     public void ApplyData()
     {
-        _SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
-           , StoryManager.Instance.CurrentLine, StoryManager.Instance.CurrentLine);
+        //_SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
+        //   , StoryManager.Instance.CurrentLine);
 
-        //_saveData.captureImagePath = Screenshot.Instance.DataPath;
-        //_saveData.playTime = StoryManager.Instance.PlayTime;
-        //_saveData.csvFileName = StoryManager.Instance.FileName;
-        //_SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
+        _saveData.captureImagePath = Screenshot.Instance.DataPath;
+        _saveData.csvFileName = StoryManager.Instance.FileName;
+        _SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
+
+        GameDataManager.Instance.Save(_SaveData, _path);
+
+        FileList.Instance.Binary_Path.Add(Application.persistentDataPath + _path);
+        FileList.Instance.SaveBinaryPathToCSV();
+
+        Debug.Log(Application.persistentDataPath + _path);
 
         image.texture = Screenshot.Instance.Texture;
-
         dateText.text = Screenshot.Instance.CaptureDate;
         scriptText.text = StoryManager.Instance.ReturnLine("Text");
 

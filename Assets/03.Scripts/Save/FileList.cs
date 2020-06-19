@@ -24,13 +24,10 @@ public class FileList
     [SerializeField] List<string> binary_path = new List<string>();
 
 
-    //로드한 데이터
-    //[SerializeField] SaveData saveData;
 
     public List<string> Binary_Path { get { return binary_path; } set { binary_path = value; } }
-    //public SaveData SaveData { get { return saveData; } set { saveData = value; } }
 
-    public void SaveCSV()
+    public void SaveBinaryPathToCSV()
     {
         using (var writer = new CSVFileWriter("Assets/Resources/Binary_Path.csv"))
         {
