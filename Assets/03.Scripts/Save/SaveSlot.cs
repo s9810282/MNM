@@ -60,9 +60,9 @@ public class SaveSlot : MonoBehaviour
 
         _saveData = null;
 
-        FileList.Instance.Binary_Path.Remove(Application.persistentDataPath + _path);
+        FileList.Instance.Binary_Path.Remove(dataCount);
         FileList.Instance.SaveBinaryPathToCSV();
-        File.Delete(Application.persistlentDataPath + _path);
+        File.Delete(Application.persistentDataPath + _path);    
 
         UnityEditor.AssetDatabase.Refresh();
 
@@ -81,7 +81,8 @@ public class SaveSlot : MonoBehaviour
 
         GameDataManager.Instance.Save(_SaveData, _path);
 
-        FileList.Instance.Binary_Path.Add(Application.persistentDataPath + _path);
+        FileList.Instance.Binary_Path.Remove(dataCount);
+        FileList.Instance.Binary_Path.Add(dataCount, Application.persistentDataPath + _path);
         FileList.Instance.SaveBinaryPathToCSV();
 
         Debug.Log(Application.persistentDataPath + _path);
@@ -95,8 +96,17 @@ public class SaveSlot : MonoBehaviour
     }
 
     //데이터를 Load
-    public SaveData Load_Data()
+    public void Load_SetData(string dataPath)
     {
-        return _saveData;
+        GameDataManager.Instance.Load(_saveData, dataPath);
+
+
+
+        image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
+        dateText.text = _saveData.saveDate;
+        scriptText.text = StoryManager.Instance.ReturnLine("Text");
+
+        noData_Slot.gameObject.SetActive(false);
+        data_slot.gameObject.SetActive(true);
     }
 }

@@ -29,6 +29,8 @@ public class StoryViewer : MonoBehaviour
         fade_InOut = new Fade_InOut();
         fade_InOut.SceneStart(this, fade_BackGround);
 
+        
+
         storyManager = StoryManager.Instance;
         textCoroutine = ReadLine();
 

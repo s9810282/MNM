@@ -59,7 +59,7 @@ public class Ingame_UI : MonoBehaviour
 
     public void Ingame_Capture()
     {
-        date = DateTime.Now.ToString("yyyyMMddHHmmss");
+        date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
         _path = "_" + date + "_ScreenShot" + ".png";
 
         Debug.Log(_path);
@@ -75,6 +75,7 @@ public class Ingame_UI : MonoBehaviour
 
     public void OnToolTabs()
     {
+        Debug.Log("TouchUI");
         StoryManager.Instance.IsTouchUI = true;
         toolTab.gameObject.SetActive(true);
     }

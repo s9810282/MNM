@@ -13,6 +13,9 @@ public class Fade_InOut
     float end;
     float time = 0;
 
+    static bool isFade;
+    public static bool IsFade { get { return IsFade; } set { isFade = value; } }
+
     public void FadeIn(MonoBehaviour player, Image fadeObj, float _time = 1.5f)  //씬을 시작할 때 씬에서 FadeBackGround가 터치를 막으므로 몇초 뒤에 false 시킨다
     {
         animtime = _time;

@@ -6,6 +6,7 @@ using UnityEngine;
 public class SaveData
 {
     public string captureImagePath;
+    public string saveDate;
 
     public string csvFileName;
     public int csvFileLine;
@@ -23,4 +24,4 @@ public class SaveData
     //    csvFileName = fileName;
     //    csvFileLine = fileLine;
     //}
-} 
+}
