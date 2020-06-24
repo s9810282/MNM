@@ -36,6 +36,11 @@ public class SaveSlot : MonoBehaviour
     string _path;
 
 
+    private void Awake()
+    {
+        
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,27 +67,54 @@ public class SaveSlot : MonoBehaviour
 
         FileList.Instance.Binary_Path.Remove(dataCount);
         FileList.Instance.SaveBinaryPathToCSV();
-        File.Delete(Application.persistentDataPath + _path);    
+        File.Delete(Application.persistentDataPath + _path);
 
-        UnityEditor.AssetDatabase.Refresh();
+        //UnityEditor.AssetDatabase.Refresh();
 
         data_slot.gameObject.SetActive(false);
         noData_Slot.gameObject.SetActive(true);
     }
+
+    //데이터를 Load하여 슬롯이 가지고 있게 함
+    public void Load_SetData(string dataPath)
+    {
+        _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
+
+        //Debug.Log(_saveData.csvFileName);   
+        //Debug.Log(_saveData.csvFileLine);
+        //Debug.Log(_saveData.captureImagePath);
+
+        image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
+        dateText.text = _saveData.saveDate;
+        scriptText.text = StoryManager.Instance.ReturnLoadLine(_SaveData.csvFileName, "Text", _SaveData.csvFileLine);
+
+        noData_Slot.gameObject.SetActive(false);
+        data_slot.gameObject.SetActive(true);
+
+
+    }
+
+    public void PressButton()
+    {
+        if (isSave)
+            ApplyData();
+        else
+            Load_Data();
+    }
+
     //SaveData의 데이터를 슬롯에다가 적용
     public void ApplyData()
     {
         //_SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
         //   , StoryManager.Instance.CurrentLine);
-        Debug.Log(Screenshot.Instance.DataPath);
+        File.Delete(Application.persistentDataPath + _path);
+        File.Delete(_saveData.captureImagePath);
+        
+
         _saveData.captureImagePath = Screenshot.Instance.DataPath;
         _saveData.csvFileName = StoryManager.Instance.FileName;
         _SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
         _SaveData.csvFileNum = StoryManager.Instance.FileNum;
-
-        Debug.Log(_saveData.csvFileName);
-        Debug.Log(_saveData.csvFileLine);
-        Debug.Log(_saveData.captureImagePath);
 
         GameDataManager.Instance.Save(_saveData, _path);
 
@@ -98,25 +130,6 @@ public class SaveSlot : MonoBehaviour
 
         noData_Slot.gameObject.SetActive(false);
         data_slot.gameObject.SetActive(true);
-    }
-
-    //데이터를 Load하여 슬롯이 가지고 있게 함
-    public void Load_SetData(string dataPath)
-    {
-        _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
-
-        //Debug.Log(_saveData.csvFileName);   
-        //Debug.Log(_saveData.csvFileLine);
-        //Debug.Log(_saveData.captureImagePath);
-
-        image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
-        dateText.text = _saveData.saveDate;
-        scriptText.text = StoryManager.Instance.ReturnLoadLine(_SaveData.csvFileName,"Text", _SaveData.csvFileLine);
-
-        noData_Slot.gameObject.SetActive(false);
-        data_slot.gameObject.SetActive(true);   
-
-        
     }
 
     //Load버튼을 통해 Load하여 시작

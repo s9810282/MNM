@@ -6,11 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class Main_UI : MonoBehaviour
 {
-    [SerializeField] GameObject saveFileListLoad;
+    [SerializeField] GameObject toolTab;
 
-    [SerializeField] GameObject option;
+    [SerializeField] GameObject save_Load_Tab;
 
-    [SerializeField] GameObject album;
+    [SerializeField] GameObject album_Tab;
+
+    [SerializeField] GameObject setting_Tab;
+
+    [SerializeField] Text currentToolText;
 
     [SerializeField] Image fade_BackGround;
 
@@ -30,19 +34,35 @@ public class Main_UI : MonoBehaviour
         //SceneManager.LoadScene("Play");
     }
 
+    public void OffTool()
+    {
+        toolTab.gameObject.SetActive(false);
+    }
+
     public void LoadGame()
     {
-        saveFileListLoad.gameObject.SetActive(true);
+        currentToolText.text = "Load";
+        toolTab.gameObject.SetActive(true);
+        save_Load_Tab.gameObject.SetActive(true);
+    }
+
+    public void MoveScene()
+    {
+        fade_InOut.MoveScene(this, fade_BackGround, "Play");
     }
 
     public void Album()
     {
-        album.gameObject.SetActive(true);
+        currentToolText.text = "Album";
+        toolTab.gameObject.SetActive(true);
+        album_Tab.gameObject.SetActive(true);
     }
 
     public void Setting()
     {
-        option.gameObject.SetActive(true);
+        currentToolText.text = "Setting";
+        toolTab.gameObject.SetActive(true);
+        setting_Tab.gameObject.SetActive(true);
     }
 
     public void Quit()

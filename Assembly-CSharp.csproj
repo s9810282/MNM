@@ -633,10 +633,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="spine-unity-examples.csproj">
-      <Project>{B76150D2-6B7D-C1C0-D9E9-55612E986F23}</Project>
-      <Name>spine-unity-examples</Name>
-    </ProjectReference>
     <ProjectReference Include="spine-unity.csproj">
       <Project>{0B41C365-A4B2-28F4-329A-01CAF3F94344}</Project>
       <Name>spine-unity</Name>

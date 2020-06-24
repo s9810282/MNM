@@ -62,48 +62,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Animation.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\AnimationState.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\AnimationStateData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Atlas.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\AtlasAttachmentLoader.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\Attachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\AttachmentLoader.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\AttachmentType.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\BoundingBoxAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\ClippingAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\MeshAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\PathAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\PointAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\RegionAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Attachments\VertexAttachment.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\BlendMode.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Bone.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\BoneData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Collections\OrderedDictionary.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\ConstraintData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Event.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\EventData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\ExposedList.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\IkConstraint.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\IkConstraintData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\IUpdatable.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Json.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\MathUtils.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\PathConstraint.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\PathConstraintData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Skeleton.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SkeletonBinary.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SkeletonBounds.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SkeletonClipping.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SkeletonData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SkeletonJson.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Skin.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Slot.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\SlotData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\TransformConstraint.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\TransformConstraintData.cs" />
-    <Compile Include="Assets\Spine\Runtime\spine-csharp\Triangulator.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Animation.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\AnimationState.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\AnimationStateData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Atlas.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\AtlasAttachmentLoader.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\Attachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\AttachmentLoader.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\AttachmentType.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\BoundingBoxAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\ClippingAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\MeshAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\PathAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\PointAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\RegionAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Attachments\VertexAttachment.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\BlendMode.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Bone.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\BoneData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Collections\OrderedDictionary.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\ConstraintData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Event.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\EventData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\ExposedList.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\IkConstraint.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\IkConstraintData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\IUpdatable.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Json.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\MathUtils.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\PathConstraint.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\PathConstraintData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Skeleton.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SkeletonBinary.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SkeletonBounds.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SkeletonClipping.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SkeletonData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SkeletonJson.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Skin.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Slot.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\SlotData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\TransformConstraint.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\TransformConstraintData.cs" />
+    <Compile Include="Assets\Spine\Runtime\spine-csharp\src\Triangulator.cs" />
     <Compile Include="Assets\Spine\Runtime\spine-unity\Asset Types\AnimationReferenceAsset.cs" />
     <Compile Include="Assets\Spine\Runtime\spine-unity\Asset Types\AtlasAssetBase.cs" />
     <Compile Include="Assets\Spine\Runtime\spine-unity\Asset Types\EventDataReferenceAsset.cs" />
@@ -165,6 +166,7 @@
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Outline\BlendModes\Spine-Skeleton-PMA-Screen-Outline.shader" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Spine-Special-Skeleton-Grayscale.shader" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\CGIncludes\Spine-Skeleton-Lit-Common-Shadow.cginc" />
+    <None Include="Assets\Spine\Runtime\spine-csharp\add spine-csharp here.txt" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Outline\Spine-Skeleton-Fill-Outline.shader" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Sprite\CGIncludes\SpriteLighting.cginc" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Outline\Spine-Skeleton-Tint-Outline.shader" />
@@ -200,11 +202,11 @@
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Spine-Skeleton-Lit.shader" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Sprite\CGIncludes\SpriteSpecular.cginc" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Spine-Skeleton-Lit-ZWrite.shader" />
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.UI">
       <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor.UI">
+      <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Hub/Editor/2019.2.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

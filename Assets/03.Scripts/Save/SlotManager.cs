@@ -1,15 +1,29 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class SlotManager : MonoBehaviour
+public class SlotManager
 {
-    [SerializeField] SaveSlot[] saveSlots;
+    private static SlotManager instance;
+    public static SlotManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = new SlotManager();
+            }
 
-    int captureCount = 0;
+            return instance;
+        }
+    }
 
-    private void Awake()
+    private SaveSlot[] saveSlots;
+    public SaveSlot[] SaveSlots { get { return saveSlots; } set { saveSlots = value; } }
+
+    public void Awake()
     {
         //시작할 때에 로드 및 세이브창에 데이터를 확인하여 넣어줌
         //메인화면 시작할때도 마찬가지
