@@ -91,8 +91,21 @@ public class StoryManager
         return data;
     }
 
+    public List<Dictionary<string, string>> LoadCSV()
+    {
+        data = CSVReader.Read(fileName);
+        
+        return data;
+    }
+
     public string ReturnLine(string typeName)
     {
         return data[currentLine][typeName];
+    }
+
+    public string ReturnLoadLine(string fileNAme, string typeName, int _currentLine)
+    {
+        List<Dictionary<string, string>> tmp = CSVReader.Read(fileNAme);
+        return tmp[_currentLine][typeName];
     }
 }

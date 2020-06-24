@@ -48,6 +48,14 @@ public class Test : MonoBehaviour
         //    Debug.Log("An animation ended!");
         //};
 
+        SaveData a = new SaveData();
+        SaveData b = new SaveData();
+
+        a.captureImagePath = "a";
+
+        Tt(a);
+
+        Debug.Log(a.captureImagePath);
 
         skeletonAnimation.AnimationState.SetAnimation(0, "head-turn", false);
         skeletonGraphic.AnimationState.SetAnimation(0, "head-turn", false);
@@ -57,6 +65,11 @@ public class Test : MonoBehaviour
 
         //skeletonGraphic.color = new Color(0f, 0f, 0f, 0f);
         //skeletonAnimation.AnimationState.SetAnimation(0, "run", false );
+    }
+
+    public void Tt(SaveData a)
+    {
+        a.captureImagePath = "b";
     }
 
     private void Update()

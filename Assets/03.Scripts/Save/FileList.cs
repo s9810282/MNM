@@ -39,10 +39,10 @@ public class FileList
             writer.WriteRow(columns);
             columns.Clear();
 
-            for(int i = 0;  i < binary_path.Count; i++)
+            foreach(var item in binary_path)
             {
-                columns.Add(i.ToString());
-                columns.Add(binary_path[i]);
+                columns.Add(item.Key.ToString());
+                columns.Add(item.Value.ToString());
 
                 writer.WriteRow(columns);
                 columns.Clear();
@@ -58,15 +58,15 @@ public class FileList
     //    return saveData;
     //}
 
-
+        
     public void LoadCSVData()
     {
-        if (File.Exists("Bianry_Path"))
-            SaveBinaryPathToCSV();
-
-
-        saveData = new List<Dictionary<string, string>>();
-        saveData = CSVReader.Read("Binary_Path");
+        if (File.Exists("Assets/Resources/Binary_Path.csv"))    
+        {
+            Debug.Log("Exist");
+            saveData = new List<Dictionary<string, string>>();
+            saveData = CSVReader.Read("Binary_Path");
+        }
     }
 
     public void LoadBinary()
@@ -76,6 +76,7 @@ public class FileList
         for(int i = 0; i < saveData.Count; i++)
         {
             binary_path.Add(int.Parse(saveData[i]["Count"]), saveData[i]["Path"]);
+            Debug.Log(binary_path[int.Parse(saveData[i]["Count"])]);
         }
     }
 }

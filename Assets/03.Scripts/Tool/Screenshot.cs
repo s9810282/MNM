@@ -50,7 +50,7 @@ public class Screenshot
 
     public Texture2D GetPhoto(string _path)
     {
-        Debug.Log(_path);
+        //Debug.Log(_path);
         string url = Application.persistentDataPath  + _path;
         var bytes = File.ReadAllBytes(url);
         texture = new Texture2D(73, 73);

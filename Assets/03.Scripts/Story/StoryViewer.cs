@@ -13,12 +13,10 @@ public class StoryViewer : MonoBehaviour
 
     [SerializeField] Text characterText;
 
-    [SerializeField] Image fade_BackGround;
-
 
     [SerializeField] string[] CSV_FileNames;
 
-    Fade_InOut fade_InOut;
+    
 
     private IEnumerator textCoroutine;
     private bool isTextSkip = false;
@@ -26,16 +24,13 @@ public class StoryViewer : MonoBehaviour
     // Start is called before the first frame update    
     void Start()
     {
-        fade_InOut = new Fade_InOut();
-        fade_InOut.SceneStart(this, fade_BackGround);
-
-        
-
         storyManager = StoryManager.Instance;
         textCoroutine = ReadLine();
 
         if (storyManager.IsNewGame)
             storyManager.LoadCSV(CSV_FileNames[storyManager.FileNum]);
+        else
+            storyManager.LoadCSV();
 
         StartCoroutine(FadeToStart());
     }
@@ -121,7 +116,7 @@ public class StoryViewer : MonoBehaviour
 
         string stateMent = storyManager.Data[storyManager.CurrentLine]["Statement"];
         char typed = stateMent[0];
-        Debug.Log(typed);
+        //Debug.Log(typed);
         if (typed.Equals('I')) //그냥 이미지
         {
             resoureceManager.ShowImage(stateMent);
@@ -171,7 +166,7 @@ public class StoryViewer : MonoBehaviour
 
         //새 게임이 아닌 로드 게임일 경우 여기가 아닌 LoadSlot 을 누를 때 처리
         
-        Debug.Log(storyManager.Data.Count);
+        //Debug.Log(storyManager.Data.Count);
         StartCoroutine(textCoroutine);
     }
 }

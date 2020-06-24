@@ -10,6 +10,7 @@ public class SaveData
 
     public string csvFileName;
     public int csvFileLine;
+    public int csvFileNum;
 
     
 

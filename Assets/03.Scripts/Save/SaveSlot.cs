@@ -74,12 +74,17 @@ public class SaveSlot : MonoBehaviour
     {
         //_SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
         //   , StoryManager.Instance.CurrentLine);
-
+        Debug.Log(Screenshot.Instance.DataPath);
         _saveData.captureImagePath = Screenshot.Instance.DataPath;
         _saveData.csvFileName = StoryManager.Instance.FileName;
         _SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
+        _SaveData.csvFileNum = StoryManager.Instance.FileNum;
 
-        GameDataManager.Instance.Save(_SaveData, _path);
+        Debug.Log(_saveData.csvFileName);
+        Debug.Log(_saveData.csvFileLine);
+        Debug.Log(_saveData.captureImagePath);
+
+        GameDataManager.Instance.Save(_saveData, _path);
 
         FileList.Instance.Binary_Path.Remove(dataCount);
         FileList.Instance.Binary_Path.Add(dataCount, Application.persistentDataPath + _path);
@@ -95,18 +100,33 @@ public class SaveSlot : MonoBehaviour
         data_slot.gameObject.SetActive(true);
     }
 
-    //데이터를 Load
+    //데이터를 Load하여 슬롯이 가지고 있게 함
     public void Load_SetData(string dataPath)
     {
-        GameDataManager.Instance.Load(_saveData, dataPath);
+        _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
 
-
+        //Debug.Log(_saveData.csvFileName);   
+        //Debug.Log(_saveData.csvFileLine);
+        //Debug.Log(_saveData.captureImagePath);
 
         image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
         dateText.text = _saveData.saveDate;
-        scriptText.text = StoryManager.Instance.ReturnLine("Text");
+        scriptText.text = StoryManager.Instance.ReturnLoadLine(_SaveData.csvFileName,"Text", _SaveData.csvFileLine);
 
         noData_Slot.gameObject.SetActive(false);
-        data_slot.gameObject.SetActive(true);
+        data_slot.gameObject.SetActive(true);   
+
+        
+    }
+
+    //Load버튼을 통해 Load하여 시작
+    //이 함수와 더불어 Ingame_UI의 함수를 통하여 Scene무브를 담당
+    public void Load_Data()
+    {
+        StoryManager.Instance.IsNewGame = false;
+
+        StoryManager.Instance.FileName = _saveData.csvFileName;
+        StoryManager.Instance.FileNum = _saveData.csvFileNum;
+        StoryManager.Instance.CurrentLine = _saveData.csvFileLine;
     }
 }

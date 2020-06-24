@@ -32,8 +32,10 @@ public class Ingame_UI : MonoBehaviour
     [SerializeField] GameObject save_Load_Tab;
 
 
-    [SerializeField] 
+    [SerializeField] Image fade_BackGround;
     #endregion
+
+    Fade_InOut fade_InOut;
 
     bool isOn = true;
 
@@ -48,6 +50,9 @@ public class Ingame_UI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        fade_InOut = new Fade_InOut();
+        fade_InOut.SceneStart(this, fade_BackGround);
+
         isOn = true;
     }
 
@@ -57,12 +62,17 @@ public class Ingame_UI : MonoBehaviour
         
     }
 
+    public void MoveScene()
+    {
+        fade_InOut.MoveScene(this, fade_BackGround, "Play");
+    }
+
     public void Ingame_Capture()
     {
         date = DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss");
         _path = "_" + date + "_ScreenShot" + ".png";
 
-        Debug.Log(_path);
+        //Debug.Log(_path);
 
         Screenshot.Instance.CaptureDate = date;
         texture = Screenshot.Instance.Return_Capture(this,_path);
@@ -75,7 +85,7 @@ public class Ingame_UI : MonoBehaviour
 
     public void OnToolTabs()
     {
-        Debug.Log("TouchUI");
+        //Debug.Log("TouchUI");
         StoryManager.Instance.IsTouchUI = true;
         toolTab.gameObject.SetActive(true);
     }
@@ -96,7 +106,7 @@ public class Ingame_UI : MonoBehaviour
     {
         WaitForSeconds waitTime = new WaitForSeconds(0.001f);
 
-        Debug.Log("Tool");
+        //Debug.Log("Tool");
 
         StoryManager.Instance.IsTouchUI = true;
 

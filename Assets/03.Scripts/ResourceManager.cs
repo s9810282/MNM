@@ -140,8 +140,6 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-
-
     public IEnumerator Image_Type1(int showpos, int showSprite)
     {
         Debug.Log("Type 1");
