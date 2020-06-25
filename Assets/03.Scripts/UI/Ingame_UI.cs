@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-public class Ingame_UI : MonoBehaviour
+public class Ingame_UI : Scene_UI
 {
     #region Instpector
 
@@ -21,21 +21,8 @@ public class Ingame_UI : MonoBehaviour
 
     [SerializeField] float speed;
 
-    [Space(3f)]
-
-    [Header("ToolTab")]
-
-    [SerializeField] Text currentToolText;
-
-    [SerializeField] GameObject toolTab;
-
-    [SerializeField] GameObject save_Load_Tab;
-
-
-    [SerializeField] Image fade_BackGround;
     #endregion
 
-    Fade_InOut fade_InOut;
 
     bool isOn = true;
 
@@ -49,22 +36,13 @@ public class Ingame_UI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        fade_InOut = new Fade_InOut();
-        fade_InOut.SceneStart(this, fade_BackGround);
+    {   
+        SceneStart();
+
+        SlotManager.Instance.SaveSlots = saveSlots;
+        SlotManager.Instance.SetDataSlot();
 
         isOn = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void MoveScene()
-    {
-        fade_InOut.MoveScene(this, fade_BackGround, "Play");
     }
 
     public void Ingame_Capture()
@@ -85,7 +63,6 @@ public class Ingame_UI : MonoBehaviour
 
     public void OnToolTabs()
     {
-        //Debug.Log("TouchUI");
         StoryManager.Instance.IsTouchUI = true;
         toolTab.gameObject.SetActive(true);
     }
@@ -98,7 +75,15 @@ public class Ingame_UI : MonoBehaviour
 
     public void OnSaveTab()
     {
+        SlotManager.Instance.Ingame_SaveBtn();
+
         currentToolText.text = "SAVE";
+        save_Load_Tab.gameObject.SetActive(true);
+    }
+
+    public void OnLoadTab()
+    {
+        currentToolText.text = "Load";
         save_Load_Tab.gameObject.SetActive(true);
     }
 

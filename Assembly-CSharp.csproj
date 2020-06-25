@@ -62,13 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\03.Scripts\Character.cs" />
     <Compile Include="Assets\03.Scripts\CSV\CSVFileCommon.cs" />
     <Compile Include="Assets\03.Scripts\CSV\CSVFileWriter.cs" />
     <Compile Include="Assets\03.Scripts\CSV\CSVReader.cs" />
     <Compile Include="Assets\03.Scripts\Data\DataManager.cs" />
     <Compile Include="Assets\03.Scripts\Data\GameDataManager.cs" />
-    <Compile Include="Assets\03.Scripts\Main\Main_UI.cs" />
     <Compile Include="Assets\03.Scripts\Pemission Not Use\PermissionCheck.cs" />
     <Compile Include="Assets\03.Scripts\Pemission Not Use\RequestPermissionScript.cs" />
     <Compile Include="Assets\03.Scripts\PuzzleType.cs" />
@@ -77,12 +75,20 @@
     <Compile Include="Assets\03.Scripts\Save\SaveData.cs" />
     <Compile Include="Assets\03.Scripts\Save\SaveSlot.cs" />
     <Compile Include="Assets\03.Scripts\Save\SlotManager.cs" />
-    <Compile Include="Assets\03.Scripts\Story\Ingame_UI.cs" />
+    <Compile Include="Assets\03.Scripts\Source\BackGround.cs" />
+    <Compile Include="Assets\03.Scripts\Source\Character.cs" />
+    <Compile Include="Assets\03.Scripts\Source\SourceImage.cs" />
+    <Compile Include="Assets\03.Scripts\Source\StatementOBJ.cs" />
     <Compile Include="Assets\03.Scripts\Story\StoryManager.cs" />
     <Compile Include="Assets\03.Scripts\Story\StoryViewer.cs" />
     <Compile Include="Assets\03.Scripts\Test.cs" />
     <Compile Include="Assets\03.Scripts\Tool\Fade_InOut.cs" />
+    <Compile Include="Assets\03.Scripts\Tool\GenericSingleton.cs" />
     <Compile Include="Assets\03.Scripts\Tool\Screenshot.cs" />
+    <Compile Include="Assets\03.Scripts\Tool\SerializableDictionary.cs" />
+    <Compile Include="Assets\03.Scripts\UI\Ingame_UI.cs" />
+    <Compile Include="Assets\03.Scripts\UI\Main_UI.cs" />
+    <Compile Include="Assets\03.Scripts\UI\Scene_UI.cs" />
     <None Include="Assets\leader\leader\LEADER.atlas.txt" />
     <None Include="Assets\Sample\새 폴더\hero-pro.atlas.txt" />
     <None Include="Assets\Spine\version.txt" />

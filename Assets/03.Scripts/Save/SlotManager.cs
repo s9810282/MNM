@@ -27,17 +27,13 @@ public class SlotManager
     {
         //시작할 때에 로드 및 세이브창에 데이터를 확인하여 넣어줌
         //메인화면 시작할때도 마찬가지
-        Debug.Log("Awake");
 
         FileList.Instance.LoadCSVData();
         FileList.Instance.LoadBinary();
-
-        SetDataSlot();
     }
 
     public void SetDataSlot()
     {
-        Debug.Log(FileList.Instance.Binary_Path.Count);
         foreach(var item in FileList.Instance.Binary_Path)
         {
             Debug.Log(item.Key);
@@ -56,11 +52,20 @@ public class SlotManager
         }
     }
 
-    public void Ingame_LoadBtn()
+    public void Ingame_LoadBtn(Scene_UI scene_UI)
     {
         foreach (var item in saveSlots)
         {
+            Debug.Log("item");
             item.IsSave = false;
+            item.MoveSceneMethod = new SceneMove(scene_UI.MoveScene);
+
+            //EventTrigger.Entry entry = new EventTrigger.Entry();
+            //entry.eventID = EventTriggerType.PointerDown;
+            //entry.callback.AddListener((eventdata) => { scene_UI.MoveScene(); });
+
+            //item.GetComponent<EventTrigger>().triggers.Add(entry);
+
         }
     }
 }

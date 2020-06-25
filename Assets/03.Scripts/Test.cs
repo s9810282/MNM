@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Spine;
 using Spine.Unity;
+using UnityEngine.UI;
 
 // Add this to the same GameObject as your SkeletonAnimation
 public class Test : MonoBehaviour
@@ -19,10 +20,28 @@ public class Test : MonoBehaviour
 
     [SerializeField] MeshRenderer me;
 
+    [SerializeField] Image backGround;
+
+    [SerializeField] string[] backGroundSpriteName;
+
+    [SerializeField] Sprite[] backGroundSprites;
+
+    private Dictionary<string, Sprite> dic_backGround = new Dictionary<string, Sprite>();
+
+
+
     [SpineEvent] public string head_turnEventName = "head-turn";
     
     void Start()
     {
+
+        Debug.Log(backGroundSpriteName.Length);
+        for (int i = 0; i < backGroundSpriteName.Length; i++)
+        {
+            dic_backGround.Add(backGroundSpriteName[i], backGroundSprites[i]);
+        }
+
+        backGround.sprite = dic_backGround["1"];
         //transform.GetComponent<MeshRenderer>().material.color = new Color(0, 0, 0, 0);
         //Debug.Log(transform.GetComponent<MeshRenderer>().material.color);
 

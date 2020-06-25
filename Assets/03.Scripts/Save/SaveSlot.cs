@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+
+public delegate void SceneMove();
 
 public class SaveSlot : MonoBehaviour
 {
@@ -28,29 +31,24 @@ public class SaveSlot : MonoBehaviour
 
 
     [SerializeField] SaveData _saveData;
-    public SaveData _SaveData { get { return _saveData; } set { _saveData = value; } }
+    
 
     private bool isSave;
-    public bool IsSave { get { return isSave; } set { isSave = value; } }
+    private bool isLoad = false;
 
     string _path;
 
+    private SceneMove moveSceneMethod;
 
-    private void Awake()
-    {
-        
-    }
+    public bool IsSave { get { return isSave; } set { isSave = value; } }
+    public SaveData _SaveData { get { return _saveData; } set { _saveData = value; } }
+    public SceneMove MoveSceneMethod { get { return moveSceneMethod; } set { moveSceneMethod = value; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        isSave = true;
         delete_Btn.onClick.AddListener(DeleteData);
-
         _path = "/" + dataCount + "_data.dat";
-
-
-
     }
 
     //데이터를 Delete
@@ -78,11 +76,10 @@ public class SaveSlot : MonoBehaviour
     //데이터를 Load하여 슬롯이 가지고 있게 함
     public void Load_SetData(string dataPath)
     {
-        _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
+        isLoad = true;
 
-        //Debug.Log(_saveData.csvFileName);   
-        //Debug.Log(_saveData.csvFileLine);
-        //Debug.Log(_saveData.captureImagePath);
+        _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
+        Debug.Log(_saveData.captureImagePath);
 
         image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
         dateText.text = _saveData.saveDate;
@@ -96,6 +93,8 @@ public class SaveSlot : MonoBehaviour
 
     public void PressButton()
     {
+        Debug.Log(IsSave);
+
         if (isSave)
             ApplyData();
         else
@@ -105,11 +104,12 @@ public class SaveSlot : MonoBehaviour
     //SaveData의 데이터를 슬롯에다가 적용
     public void ApplyData()
     {
-        //_SaveData = new SaveData(Screenshot.Instance.DataPath, StoryManager.Instance.FileName
-        //   , StoryManager.Instance.CurrentLine);
-        File.Delete(Application.persistentDataPath + _path);
-        File.Delete(_saveData.captureImagePath);
-        
+        if (File.Exists(Application.persistentDataPath + _path))
+            File.Delete(Application.persistentDataPath + _path);
+
+        if (File.Exists(_saveData.captureImagePath))
+            File.Delete(_saveData.captureImagePath);
+
 
         _saveData.captureImagePath = Screenshot.Instance.DataPath;
         _saveData.csvFileName = StoryManager.Instance.FileName;
@@ -136,10 +136,16 @@ public class SaveSlot : MonoBehaviour
     //이 함수와 더불어 Ingame_UI의 함수를 통하여 Scene무브를 담당
     public void Load_Data()
     {
+        if (!isLoad)
+            return;
+
+
         StoryManager.Instance.IsNewGame = false;
 
         StoryManager.Instance.FileName = _saveData.csvFileName;
         StoryManager.Instance.FileNum = _saveData.csvFileNum;
         StoryManager.Instance.CurrentLine = _saveData.csvFileLine;
+
+        moveSceneMethod.Invoke();
     }
 }

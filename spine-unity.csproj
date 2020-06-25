@@ -202,11 +202,11 @@
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Spine-Skeleton-Lit.shader" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Sprite\CGIncludes\SpriteSpecular.cginc" />
     <None Include="Assets\Spine\Runtime\spine-unity\Shaders\Spine-Skeleton-Lit-ZWrite.shader" />
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Unity/Hub/Editor/2019.2.13f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>

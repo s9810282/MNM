@@ -14,7 +14,7 @@ public class Fade_InOut
     float time = 0;
 
     static bool isFade;
-    public static bool IsFade { get { return IsFade; } set { isFade = value; } }
+    public static bool IsFade { get { return isFade; } set { isFade = value; } }
 
     public void FadeIn(MonoBehaviour player, Image fadeObj, float _time = 1.5f)  //씬을 시작할 때 씬에서 FadeBackGround가 터치를 막으므로 몇초 뒤에 false 시킨다
     {
@@ -56,7 +56,7 @@ public class Fade_InOut
 
     IEnumerator FadeIn(Image fadeobj)
     {
-        StoryManager.Instance.IsFadeEnd = false;
+        isFade = false;
 
         start = 0;
         end = 1;
@@ -76,13 +76,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        StoryManager.Instance.IsFadeEnd = true;
+        isFade = true;
 ;
     }  //배경이 나타남
 
     IEnumerator FadeOut(Image fadeobj)
     {
-        StoryManager.Instance.IsFadeEnd = false ;
+        isFade = false ;
 
         start = 1;
         end = 0;
@@ -102,13 +102,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        StoryManager.Instance.IsFadeEnd = true;
+        isFade = true;
 
     }  //배경이 사라짐
 
     IEnumerator FadeIn(SkeletonGraphic fadeobj)
     {
-        StoryManager.Instance.IsFadeEnd = false;
+        isFade = false;
 
         start = 0;
         end = 1;
@@ -128,13 +128,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        StoryManager.Instance.IsFadeEnd = true;
-        ;
+        isFade = true;
+        
     }  //캐릭터가 나타남
 
     IEnumerator FadeOut(SkeletonGraphic fadeobj)
     {
-        StoryManager.Instance.IsFadeEnd = false;
+        isFade = false;
 
         start = 1;
         end = 0;
@@ -154,7 +154,7 @@ public class Fade_InOut
             yield return null;
         }
 
-        StoryManager.Instance.IsFadeEnd = true;
+        isFade = true;
 
     }  //캐릭터가 사라짐
 

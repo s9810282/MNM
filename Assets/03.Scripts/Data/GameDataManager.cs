@@ -36,7 +36,6 @@ public class GameDataManager
     public SaveData Load(SaveData _gamedata, string fileName = null) //경로에서 불러다가 gamadata에 저장
     {
         _gamedata = DataManager.BinaryDeserialize<SaveData>(fileName);
-
         return _gamedata;
     }
 }

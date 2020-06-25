@@ -16,10 +16,14 @@ public class StoryViewer : MonoBehaviour
 
     [SerializeField] string[] CSV_FileNames;
 
-    
+    [SerializeField] float touchDownDelayTime;
+
+
 
     private IEnumerator textCoroutine;
     private bool isTextSkip = false;
+
+    private bool isTouchDown = false;
 
     // Start is called before the first frame update    
     void Start()
@@ -38,21 +42,19 @@ public class StoryViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!storyManager.IsFadeEnd)
-            return;
-
-        if (storyManager.IsTouchUI)
-            return;
-
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Input");
-
-            if (storyManager.IsNeverSkip)
+            if (isTouchDown)
                 return;
 
-            if (storyManager.IsNotText)
+            if (storyManager.IsTouchUI)
                 return;
+
+            if (!Fade_InOut.IsFade)
+                return;
+
+            isTouchDown = true;
+            StartCoroutine(TouchDown(touchDownDelayTime));
 
             //더 나올 텍스트가 없다면
             if (storyManager.IsLineEnd)
@@ -64,26 +66,23 @@ public class StoryViewer : MonoBehaviour
             //천천히 나오던 텍스트를 한번에 출력
             TextSkip();
         }
-
-        if (isTextSkip) //마우스 클릭이 2,3프레임에 들어가기에 한번 넘어가기 위한 작업
-            storyManager.IsLineEnd = true;
     }
 
     public void TextSkip()
     {
         StopCoroutine(textCoroutine);
+
+        characterText.text = storyManager.Data[storyManager.CurrentLine]["Speaker"];
         scripteText.text = storyManager.Data[storyManager.CurrentLine]["Text"];
 
-        isTextSkip = true;
-        Debug.Log(storyManager.IsLineEnd);
+        storyManager.IsLineEnd = true;
     }
 
     public void NextLine()
     {
-        //다음 줄을 가지고 진행
-        Debug.Log(storyManager.IsLineEnd);
         storyManager.CurrentLine++;
 
+        //만약 다음줄이 없다면 파일을 새로 읽음
         if (storyManager.Data.Count <= storyManager.CurrentLine)
         {
             if (CSV_FileNames[storyManager.FileNum] == null)
@@ -97,20 +96,18 @@ public class StoryViewer : MonoBehaviour
         StartCoroutine(textCoroutine);
     }
 
+
+
     //만약 소스가 비어있다면 한줄 출력                        소스 : 캐릭터 : 대사
     IEnumerator ReadLine()
     {
         WaitForSeconds waitTime = new WaitForSeconds(0.075f);
 
-        
+
         scripteText.text = null;
         characterText.text = null;
 
-        isTextSkip = false;
-
         storyManager.IsLineEnd = false;
-
-
 
         #region StateMent
 
@@ -121,22 +118,22 @@ public class StoryViewer : MonoBehaviour
         {
             resoureceManager.ShowImage(stateMent);
         }
-        else if(typed.Equals('B'))
+        else if (typed.Equals('B'))
         {
             resoureceManager.ShowBackGround(stateMent);
         }
-        else if(typed.Equals('P')) //퍼즐.
+        else if (typed.Equals('P')) //퍼즐.
         {
 
         }
-        else if(typed.Equals('C')) //캐릭터
+        else if (typed.Equals('C')) //캐릭터
         {
             resoureceManager.ShowCharacter(stateMent);
         }
 
         #endregion
 
-        #region Text  Character
+        #region Text  Speaker
         string str = storyManager.Data[storyManager.CurrentLine]["Text"];
 
         if (str == null)
@@ -160,13 +157,15 @@ public class StoryViewer : MonoBehaviour
 
     IEnumerator FadeToStart()
     {
-        yield return new WaitUntil(() => storyManager.IsFadeEnd);
+        storyManager.IsLineEnd = false;
 
-        isTextSkip = false;
-
-        //새 게임이 아닌 로드 게임일 경우 여기가 아닌 LoadSlot 을 누를 때 처리
-        
-        //Debug.Log(storyManager.Data.Count);
+        yield return new WaitUntil(() => Fade_InOut.IsFade);
         StartCoroutine(textCoroutine);
+    }
+
+    IEnumerator TouchDown(float time)
+    {
+        yield return new WaitForSeconds(time);
+        isTouchDown = false;
     }
 }

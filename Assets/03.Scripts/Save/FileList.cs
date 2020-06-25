@@ -63,7 +63,6 @@ public class FileList
     {
         if (File.Exists("Assets/Resources/Binary_Path.csv"))    
         {
-            Debug.Log("Exist");
             saveData = new List<Dictionary<string, string>>();
             saveData = CSVReader.Read("Binary_Path");
         }
@@ -76,7 +75,7 @@ public class FileList
         for(int i = 0; i < saveData.Count; i++)
         {
             binary_path.Add(int.Parse(saveData[i]["Count"]), saveData[i]["Path"]);
-            Debug.Log(binary_path[int.Parse(saveData[i]["Count"])]);
+            //Debug.Log(binary_path[int.Parse(saveData[i]["Count"])]);
         }
     }
 }

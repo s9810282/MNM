@@ -36,7 +36,6 @@ public class StoryManager
     private bool isNotText = false;
 
     private bool isTouchUI = false;
-    private bool isFadeEnd = true;
 
     #endregion
 
@@ -53,10 +52,8 @@ public class StoryManager
     public bool IsNewGame { get { return isNewGame; } set { isNewGame = value; } }
     public bool IsNeverSkip { get { return isNeverSkip; } set { isNeverSkip = value; } }
     public bool IsLineEnd { get { return isLineEnd; } set { isLineEnd = value; } }
-    public bool IsNotText { get { return isNotText; } set { isNotText = value; } }
 
     public bool IsTouchUI { get { return isTouchUI; } set { isTouchUI = value; } }
-    public bool IsFadeEnd { get { return isFadeEnd; } set { isFadeEnd = value; } }
 
     #endregion
 
@@ -64,20 +61,20 @@ public class StoryManager
     {
         data = new List<Dictionary<string, string>>();
 
-        currentLine = 0;
-
-        isLineEnd = false;
-        isNeverSkip = false;
-        isNotText = false;
-        isNewGame = true;
-
-        isTouchUI = false;
-        isFadeEnd = true;
-
         fileName = string.Empty;
         fileNum = 0;
 
         playTime = 0;
+
+        currentLine = 0;
+
+
+
+        isLineEnd = false;
+        isNeverSkip = false;
+        isNewGame = true;
+
+        isTouchUI = false;
     }
 
     public List<Dictionary<string, string>> LoadCSV(string _fileName)
