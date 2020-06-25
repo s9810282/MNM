@@ -30,7 +30,7 @@ public class SourceImage : StatementOBJ
         sourceImage.sprite = dic_sourceImag[sourceName];
     }
 
-    public override void Delete()
+    public override void Delete(string sorceName = null)
     {
         sourceImage.sprite = null;
     }
@@ -40,7 +40,7 @@ public class SourceImage : StatementOBJ
         StartCoroutine(SlowChange(sourceName));
     }
 
-    public override void SlowlyFadeOut()
+    public override void SlowlyFadeOut(string sorceName = null)
     {
         StartCoroutine(SlowFadeOut());
     }

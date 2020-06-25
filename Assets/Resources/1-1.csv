@@ -1,7 +1,7 @@
-﻿Speaker,Statement,Text
-???,B.11,하아... 하아...
-	,I.M11,
-???,I.M01,하아... 하아...
-	,I.M21,
-	,I.M31,
-???,I.M01,"알고 있었다...애초에 이렇게 될 것이라고.."
+﻿Speaker,Text,Character Image,C_position,C_drecion,Source Image,S_position,S_drection,Background,B_drection,Sound,,,,,,,
+???,하아... 하아...,,,,,,,1,3,,,,,,,,
+???,,,,,1,1,5,,,,,,,,,,
+???,하아... 하아...,,,,,,,,,,,,,,,,
+???,,,,,2,1,5,,,,,,,,,,
+???,,,,,3,1,5,,,,,,,,,,
+???,,,,,,,,,,,,,,,,,

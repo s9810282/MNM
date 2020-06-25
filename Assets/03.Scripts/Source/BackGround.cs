@@ -31,7 +31,7 @@ public class BackGround : StatementOBJ
         backGround.sprite = dic_backGround[sourceName];
     }
 
-    public override void Delete()
+    public override void Delete(string sorceName = null)
     {
         backGround.sprite = null;
     }
@@ -41,7 +41,7 @@ public class BackGround : StatementOBJ
         StartCoroutine(SlowChange(sourceName));
     }
 
-    public override void SlowlyFadeOut()
+    public override void SlowlyFadeOut(string sorceName = null)
     {
         StartCoroutine(SlowFadeOut());
     }

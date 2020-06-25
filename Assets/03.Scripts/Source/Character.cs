@@ -37,7 +37,7 @@ public class Character : StatementOBJ
         spineCharacter.skeletonDataAsset = dic_characterSprites[sourceName];
     }
 
-    public override void Delete()
+    public override void Delete(string sorceName = null)
     {
         spineCharacter.gameObject.SetActive(false);
     }
@@ -47,7 +47,7 @@ public class Character : StatementOBJ
         StartCoroutine(SlowChange(sourceName));
     }
 
-    public override void SlowlyFadeOut()
+    public override void SlowlyFadeOut(string sorceName = null)
     {
         StartCoroutine(SlowFadeOut());
     }

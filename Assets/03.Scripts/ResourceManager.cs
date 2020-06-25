@@ -8,7 +8,7 @@ using Spine.Unity;
 public class ResourceManager : MonoBehaviour
 {
     [Header("SourceImagae")]
-    [SerializeField] SourceImage[] spritesPos;
+    [SerializeField] SourceImage[] sourceImage;
 
 
     [Header("BackGround")]
@@ -34,18 +34,26 @@ public class ResourceManager : MonoBehaviour
         
     }
 
-    public void ShowImage(string str)
+    public void ShowImage(string str) //str = SourceImage
     {
-       
+        int sourcePos = int.Parse(StoryManager.Instance.ReturnLine("S_position"));
+        int sourceType = int.Parse(StoryManager.Instance.ReturnLine("S_drection"));
+
+        sourceImage[sourcePos].stateChangeFunc[sourceType].Invoke(str);
     }
 
     public void ShowBackGround(string str)
     {
-        
+        int backGroundType = int.Parse(StoryManager.Instance.ReturnLine("B_drection"));
+
+        backGround.stateChangeFunc[backGroundType].Invoke(str);
     }
 
     public void ShowCharacter(string str)
     {
-       
+        int characterPos = int.Parse(StoryManager.Instance.ReturnLine("C_position"));
+        int characterType = int.Parse(StoryManager.Instance.ReturnLine("C_drection"));
+
+        spineCharacters[characterPos].stateChangeFunc[characterType].Invoke(str);
     }
 }
