@@ -89,6 +89,7 @@
     <Compile Include="Assets\03.Scripts\UI\Ingame_UI.cs" />
     <Compile Include="Assets\03.Scripts\UI\Main_UI.cs" />
     <Compile Include="Assets\03.Scripts\UI\Scene_UI.cs" />
+    <None Include="Assets\boy\boy.atlas.txt" />
     <None Include="Assets\leader\leader\LEADER.atlas.txt" />
     <None Include="Assets\Sample\새 폴더\hero-pro.atlas.txt" />
     <None Include="Assets\Spine\version.txt" />

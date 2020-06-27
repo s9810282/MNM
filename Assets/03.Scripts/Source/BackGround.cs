@@ -11,12 +11,14 @@ public class BackGround : StatementOBJ
 
     [SerializeField] Sprite[] backGroundSprites;
 
-    private Dictionary<string, Sprite> dic_backGround;
+    private Dictionary<string, Sprite> dic_backGround = new Dictionary<string, Sprite>();
 
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < backGroundSpriteName.Length; i++)
+        SetDelegate();
+
+        for (int i = 0; i < backGroundSpriteName.Length; i++)
             dic_backGround.Add(backGroundSpriteName[i], backGroundSprites[i]);
     }
 

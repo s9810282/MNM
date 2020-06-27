@@ -29,7 +29,7 @@ public class StoryViewer : MonoBehaviour
     void Start()
     {
         storyManager = StoryManager.Instance;
-        textCoroutine = ReadLine();
+        textCoroutine = ReadText();
 
         if (storyManager.IsNewGame)
             storyManager.LoadCSV(CSV_FileNames[storyManager.FileNum]);
@@ -85,6 +85,9 @@ public class StoryViewer : MonoBehaviour
         //만약 다음줄이 없다면 파일을 새로 읽음
         if (storyManager.Data.Count <= storyManager.CurrentLine)
         {
+            Debug.Log(storyManager.Data.Count);
+            Debug.Log(storyManager.CurrentLine);
+
             if (CSV_FileNames[storyManager.FileNum] == null)
                 return;
 
@@ -92,46 +95,63 @@ public class StoryViewer : MonoBehaviour
             storyManager.LoadCSV(CSV_FileNames[storyManager.FileNum]);
         }
 
-        textCoroutine = ReadLine();
+        scripteText.text = null;
+        characterText.text = null;
+
+        ShowBackGround();
+        ShowCharacter();
+        ShowSourceImage();
+
+        textCoroutine = ReadText();
         StartCoroutine(textCoroutine);
     }
 
+    //3
+    public void ShowSourceImage()
+    {
+        string str = storyManager.ReturnLine("Source Image");
 
+        if (str.Length > 0)
+        {
+            Debug.Log(str.Length);
+            Debug.Log("SourceImage : " + str);
+            resoureceManager.ShowImage(str);
+        }
+    }
+    //1
+    public void ShowBackGround()
+    {
+        string str = storyManager.ReturnLine("Background");
 
-    //만약 소스가 비어있다면 한줄 출력                        소스 : 캐릭터 : 대사
-    IEnumerator ReadLine()
+        if (str.Length > 0)
+        {
+            Debug.Log(str.Length);
+            Debug.Log("BackGround Image : " + str);
+            resoureceManager.ShowBackGround(str);
+        }
+    }
+    //2
+    public void ShowCharacter()
+    {
+        string str = storyManager.ReturnLine("Character Image");
+        
+
+        if (str.Length > 0)
+        {
+            Debug.Log(str.Length);
+            Debug.Log("Character Imgage : " + str);
+            resoureceManager.ShowCharacter(str);
+        }
+    }
+    //last
+    IEnumerator ReadText()
     {
         WaitForSeconds waitTime = new WaitForSeconds(0.075f);
-
 
         scripteText.text = null;
         characterText.text = null;
 
         storyManager.IsLineEnd = false;
-
-        #region StateMent
-
-        string stateMent = storyManager.Data[storyManager.CurrentLine]["Statement"];
-        char typed = stateMent[0];
-        //Debug.Log(typed);
-        if (typed.Equals('I')) //그냥 이미지
-        {
-            resoureceManager.ShowImage(stateMent);
-        }
-        else if (typed.Equals('B'))
-        {
-            resoureceManager.ShowBackGround(stateMent);
-        }
-        else if (typed.Equals('P')) //퍼즐.
-        {
-
-        }
-        else if (typed.Equals('C')) //캐릭터
-        {
-            resoureceManager.ShowCharacter(stateMent);
-        }
-
-        #endregion
 
         #region Text  Speaker
         string str = storyManager.Data[storyManager.CurrentLine]["Text"];
@@ -153,13 +173,21 @@ public class StoryViewer : MonoBehaviour
         storyManager.IsLineEnd = true;
 
         yield break;
-    }
+    } //텍스트 출력
 
     IEnumerator FadeToStart()
     {
         storyManager.IsLineEnd = false;
 
         yield return new WaitUntil(() => Fade_InOut.IsFade);
+
+        scripteText.text = null;
+        characterText.text = null;
+
+        ShowBackGround();
+        ShowCharacter();
+        ShowSourceImage();
+
         StartCoroutine(textCoroutine);
     }
 

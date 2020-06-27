@@ -68,8 +68,6 @@ public class StoryManager
 
         currentLine = 0;
 
-
-
         isLineEnd = false;
         isNeverSkip = false;
         isNewGame = true;

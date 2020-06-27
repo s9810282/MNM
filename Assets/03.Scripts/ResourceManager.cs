@@ -39,14 +39,14 @@ public class ResourceManager : MonoBehaviour
         int sourcePos = int.Parse(StoryManager.Instance.ReturnLine("S_position"));
         int sourceType = int.Parse(StoryManager.Instance.ReturnLine("S_drection"));
 
-        sourceImage[sourcePos].stateChangeFunc[sourceType].Invoke(str);
+        sourceImage[sourcePos].stateChangeFunc[sourceType - 1].Invoke(str);
     }
 
     public void ShowBackGround(string str)
     {
         int backGroundType = int.Parse(StoryManager.Instance.ReturnLine("B_drection"));
 
-        backGround.stateChangeFunc[backGroundType].Invoke(str);
+        backGround.stateChangeFunc[backGroundType - 1].Invoke(str);
     }
 
     public void ShowCharacter(string str)
@@ -54,6 +54,6 @@ public class ResourceManager : MonoBehaviour
         int characterPos = int.Parse(StoryManager.Instance.ReturnLine("C_position"));
         int characterType = int.Parse(StoryManager.Instance.ReturnLine("C_drection"));
 
-        spineCharacters[characterPos].stateChangeFunc[characterType].Invoke(str);
+        spineCharacters[characterPos].stateChangeFunc[characterType - 1].Invoke(str);
     }
 }

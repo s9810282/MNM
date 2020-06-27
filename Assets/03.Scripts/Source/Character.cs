@@ -16,11 +16,13 @@ public class Character : StatementOBJ
 
     [SerializeField] SkeletonDataAsset[] characterSprites;
 
-    private Dictionary<string, SkeletonDataAsset> dic_characterSprites;
+    private Dictionary<string, SkeletonDataAsset> dic_characterSprites= new Dictionary<string, SkeletonDataAsset>();
 
     // Start is called before the first frame update
     void Start()
     {
+        SetDelegate();
+
         for (int i = 0; i < characterSpriteName.Length; i++)
             dic_characterSprites.Add(characterSpriteName[i], characterSprites[i]);
     }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public delegate void StateChange(string sourceName = null);
+public delegate void StateChange(string sourceName);
 
 abstract public class StatementOBJ : MonoBehaviour
 {
@@ -17,13 +17,7 @@ abstract public class StatementOBJ : MonoBehaviour
 
     private void Start()
     {
-        fade_InOut = new Fade_InOut();
-
-        stateChangeFunc[0] = Change;
-        stateChangeFunc[1] = Delete;
-        stateChangeFunc[2] = SlowlyFadeIn;
-        stateChangeFunc[3] = SlowlyFadeOut;
-        stateChangeFunc[4] = SlowlyChange;
+        
     }
 
     //서서히 사라졋다가 서서히 올라옴
@@ -32,4 +26,16 @@ abstract public class StatementOBJ : MonoBehaviour
     public abstract IEnumerator SlowFadeIn(string sourceName);
 
     public abstract IEnumerator SlowFadeOut();
+
+    public virtual void SetDelegate()
+    {
+        fade_InOut = new Fade_InOut();
+        stateChangeFunc = new StateChange[5];
+
+        stateChangeFunc[0] = new StateChange(Change);
+        stateChangeFunc[1] = new StateChange(Delete);
+        stateChangeFunc[2] = new StateChange(SlowlyFadeIn);
+        stateChangeFunc[3] = new StateChange(SlowlyFadeOut);
+        stateChangeFunc[4] = new StateChange(SlowlyChange);
+    }
 }
