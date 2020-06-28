@@ -7,6 +7,8 @@ public class StoryViewer : MonoBehaviour
 {
     [SerializeField] ResourceManager resoureceManager;
 
+    [SerializeField] PuzzleManager puzzleManager;
+
     [SerializeField] StoryManager storyManager;
 
     [SerializeField] Text scripteText;
@@ -42,6 +44,9 @@ public class StoryViewer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (storyManager.IsPuzzle)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             if (isTouchDown)
@@ -106,6 +111,10 @@ public class StoryViewer : MonoBehaviour
         StartCoroutine(textCoroutine);
     }
 
+    public void PuzzleStart()
+    {
+        puzzleManager.OnPuzzle();
+    }
     //3
     public void ShowSourceImage()
     {

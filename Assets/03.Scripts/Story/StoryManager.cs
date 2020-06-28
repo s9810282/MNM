@@ -36,6 +36,7 @@ public class StoryManager
     private bool isNotText = false;
 
     private bool isTouchUI = false;
+    private bool isPuzzle = false;
 
     #endregion
 
@@ -54,6 +55,7 @@ public class StoryManager
     public bool IsLineEnd { get { return isLineEnd; } set { isLineEnd = value; } }
 
     public bool IsTouchUI { get { return isTouchUI; } set { isTouchUI = value; } }
+    public bool IsPuzzle { get { return isPuzzle; } set { isPuzzle = value; } }
 
     #endregion
 
@@ -73,6 +75,7 @@ public class StoryManager
         isNewGame = true;
 
         isTouchUI = false;
+        isPuzzle = false;
     }
 
     public List<Dictionary<string, string>> LoadCSV(string _fileName)
