@@ -10,6 +10,8 @@ public class PuzzleManager : MonoBehaviour
 
     [SerializeField] Image[] puzzleComponent;
 
+    [SerializeField] GameObject option;
+
     Fade_InOut fade_InOut;
 
     // Start is called before the first frame update
@@ -27,10 +29,10 @@ public class PuzzleManager : MonoBehaviour
 
     public void OnPuzzle(string str = null)
     {
+        StoryManager.Instance.IsPuzzle = true;
+
         foreach (var item in puzzleComponent)
         {
-            StoryManager.Instance.IsPuzzle = true;
-
             item.gameObject.SetActive(true);
             fade_InOut.FadeIn(this, item);
         }
@@ -38,8 +40,14 @@ public class PuzzleManager : MonoBehaviour
         _puzzle.gameObject.SetActive(true);
     }
 
-    public void OnPuzzleBtn()
+
+    public void Replay()
     {
 
+    }
+
+    public void OnOption()
+    {
+        option.gameObject.SetActive(true);
     }
 }

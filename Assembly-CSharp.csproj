@@ -69,9 +69,10 @@
     <Compile Include="Assets\03.Scripts\Data\GameDataManager.cs" />
     <Compile Include="Assets\03.Scripts\Pemission Not Use\PermissionCheck.cs" />
     <Compile Include="Assets\03.Scripts\Pemission Not Use\RequestPermissionScript.cs" />
-    <Compile Include="Assets\03.Scripts\Puzzle\Answer.cs" />
+    <Compile Include="Assets\03.Scripts\Puzzle\Answer\Answer.cs" />
+    <Compile Include="Assets\03.Scripts\Puzzle\Answer\NumberAnswer.cs" />
+    <Compile Include="Assets\03.Scripts\Puzzle\Answer\SelectionAnswer.cs" />
     <Compile Include="Assets\03.Scripts\Puzzle\LogicalFindColor.cs" />
-    <Compile Include="Assets\03.Scripts\Puzzle\NumberAnswer.cs" />
     <Compile Include="Assets\03.Scripts\Puzzle\Puzzle.cs" />
     <Compile Include="Assets\03.Scripts\Puzzle\PuzzleManager.cs" />
     <Compile Include="Assets\03.Scripts\PuzzleType.cs" />

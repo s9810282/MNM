@@ -1705,7 +1705,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2676338733669955977}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 931599638372490475}
+        m_MethodName: OffAnswer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7730123548823766007
 GameObject:
   m_ObjectHideFlags: 0
@@ -2229,7 +2240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputText: {fileID: 98867095674464617}
-  offAnswerBtn: {fileID: 2540764427848340525}
   endAnswerBtn: {fileID: 1384341614384024254}
 --- !u!1 &8276736103036517736
 GameObject:

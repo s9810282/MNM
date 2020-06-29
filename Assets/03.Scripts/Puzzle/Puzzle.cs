@@ -26,32 +26,33 @@ public class Puzzle : MonoBehaviour
     public void StartResetField()
     {
         fade_InOut = new Fade_InOut();
-        
-        answer.offAnswerBtn.onClick.AddListener(OffAnswer);
-        answer.endAnswerBtn.onClick.AddListener(CheckAnswer);
     }
 
     public virtual void PuzzleStart()
     {
         gameObject.SetActive(true);
 
+        StoryManager.Instance.IsPuzzle = true;
+
         foreach (var item in puzzleComponent)
         {
-            StoryManager.Instance.IsPuzzle = true;
+            item.gameObject.SetActive(true);
             fade_InOut.FadeIn(this, item);
         }
 
     } //임시로 제작 추후 변경 예정
 
-    public void OnAnswer()
+
+    public virtual void ResetBtn()
     {
-        answer.gameObject.SetActive(true);
+
     }
 
-    public void OffAnswer()
+    public virtual void HintBtn()
     {
-        answer.gameObject.SetActive(false);
-    }
+
+    }   
+
 
     public virtual void CheckAnswer()
     {

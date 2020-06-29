@@ -29,13 +29,13 @@ public class LogicalFindColor : Puzzle
 
     public override void CheckAnswer()
     {
-        if(answer.inputText.text == 3.ToString())
+        if (answer.SelectNum == 2)
         {
-
+            Debug.Log("Sucess");
         }
         else
         {
-
+            Debug.Log("Fail");
         }
     }
 }
