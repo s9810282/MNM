@@ -11,6 +11,10 @@ public class Character : StatementOBJ
 
     [SerializeField] SkeletonGraphic spineCharacter;
 
+    [SerializeField] Material clearMaterial;
+
+    [SerializeField] Material skeletonGraphicDefault;
+
 
     [SerializeField] string[] characterSpriteName;
 
@@ -25,6 +29,9 @@ public class Character : StatementOBJ
 
         for (int i = 0; i < characterSpriteName.Length; i++)
             dic_characterSprites.Add(characterSpriteName[i], characterSprites[i]);
+
+        Debug.Log(dic_characterSprites["Girl"].name);
+        //SlowlyFadeIn("Girl");
     }
 
     // Update is called once per frame
@@ -35,13 +42,14 @@ public class Character : StatementOBJ
 
     public override void Change(string sourceName)
     {
-        spineCharacter.gameObject.SetActive(true);
         spineCharacter.skeletonDataAsset = dic_characterSprites[sourceName];
+        spineCharacter.material = skeletonGraphicDefault;
     }
 
     public override void Delete(string sorceName = null)
     {
-        spineCharacter.gameObject.SetActive(false);
+        spineCharacter.material = clearMaterial;
+        //spineCharacter.skeletonDataAsset = null;
     }
 
     public override void SlowlyChange(string sourceName)
@@ -74,10 +82,16 @@ public class Character : StatementOBJ
 
     public override IEnumerator SlowFadeIn(string sourceName)
     {
+        spineCharacter.enabled = false;
+
         spineCharacter.skeletonDataAsset = dic_characterSprites[sourceName];
+        spineCharacter.material = skeletonGraphicDefault;
+
+
         fade_InOut.FadeIn(this, spineCharacter, 0.7f);
 
         yield return new WaitUntil(() => Fade_InOut.IsFade);
+        spineCharacter.enabled = true;
     }
 
     public override IEnumerator SlowFadeOut()
@@ -87,5 +101,8 @@ public class Character : StatementOBJ
         yield return new WaitUntil(() => Fade_InOut.IsFade);
 
         spineCharacter.gameObject.SetActive(false);
+
+        spineCharacter.material = clearMaterial;
+        //spineCharacter.skeletonDataAsset = null;
     }
 }

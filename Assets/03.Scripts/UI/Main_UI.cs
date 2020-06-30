@@ -8,6 +8,11 @@ public class Main_UI : Scene_UI
 {
     [SerializeField] GameObject album_Tab;
 
+    private void Awake()
+    {
+        Screen.SetResolution(1920, 1080, false);
+    }
+
     private void Start()
     {
         SceneStart();

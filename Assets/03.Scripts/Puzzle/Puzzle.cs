@@ -5,16 +5,37 @@ using UnityEngine.UI;
 
 public class Puzzle : MonoBehaviour
 {
+    [Header("Puzzle & Answer")]
     [SerializeField] protected Answer answer;
 
     [SerializeField] protected Image[] puzzleComponent;
 
+    [SerializeField] protected Text puzzleQuestionText;
+
+    [Header("Puzzle Question")]
+    [TextArea]
+    [SerializeField] protected string puzzleQuestionExposition;
+    [TextArea]
+    [SerializeField] protected string puzzleQuestion;
+
+    [Header("Puzzle Answer TextFile Name")]
+    [SerializeField] protected string aWrongText;
+    [SerializeField] protected string correctAnswer;
+
     [SerializeField] protected Fade_InOut fade_InOut;
+
+    protected bool isPuzzleText;
+
+    public string PuzzleQuestionExposition { get { return puzzleQuestionExposition; } }
+    public string PuzzleQuestion { get { return puzzleQuestion; } }
+
+    public Text PuzzleQuestionText { get { return puzzleQuestionText; } }
+
 
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
@@ -26,6 +47,7 @@ public class Puzzle : MonoBehaviour
     public void StartResetField()
     {
         fade_InOut = new Fade_InOut();
+        isPuzzleText = false;
     }
 
     public virtual void PuzzleStart()

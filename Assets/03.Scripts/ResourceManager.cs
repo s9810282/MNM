@@ -10,14 +10,10 @@ public class ResourceManager : MonoBehaviour
     [Header("SourceImagae")]
     [SerializeField] SourceImage[] sourceImage;
 
-
     [Header("BackGround")]
-
     [SerializeField] BackGround backGround;
 
-
     [Header("Character")]
-
     [SerializeField] Character[] spineCharacters;
 
     Fade_InOut fade_InOut;
@@ -53,6 +49,9 @@ public class ResourceManager : MonoBehaviour
     {
         int characterPos = int.Parse(StoryManager.Instance.ReturnLine("C_position"));
         int characterType = int.Parse(StoryManager.Instance.ReturnLine("C_drection"));
+
+        Debug.Log(characterPos);
+        Debug.Log(characterType);
 
         spineCharacters[characterPos].stateChangeFunc[characterType - 1].Invoke(str);
     }

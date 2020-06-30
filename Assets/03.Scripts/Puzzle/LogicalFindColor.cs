@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class LogicalFindColor : Puzzle
 {
-    [SerializeField] Text expositionText;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +20,7 @@ public class LogicalFindColor : Puzzle
 
     public override void PuzzleStart()
     {
-        base.PuzzleStart();
-        fade_InOut.FadeIn(this, expositionText);
-        
+        base.PuzzleStart();      
     }
 
     public override void CheckAnswer()
@@ -32,10 +28,15 @@ public class LogicalFindColor : Puzzle
         if (answer.SelectNum == 2)
         {
             Debug.Log("Sucess");
+            PuzzleManager.Instance.ReadPuzzleText(correctAnswer);
         }
         else
         {
             Debug.Log("Fail");
+            PuzzleManager.Instance.ReadPuzzleText(aWrongText);
         }
+
+        answer.gameObject.SetActive(false);
+        PuzzleManager.Instance.StartCoroutine_ReadText();
     }
 }

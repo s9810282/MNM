@@ -39,6 +39,7 @@ public class StoryViewer : MonoBehaviour
             storyManager.LoadCSV();
 
         StartCoroutine(FadeToStart());
+        Debug.Log(storyManager.Data[3]["Source Image"]);
     }
 
     // Update is called once per frame
@@ -103,6 +104,7 @@ public class StoryViewer : MonoBehaviour
         scripteText.text = null;
         characterText.text = null;
 
+        PuzzleBoolean();
         ShowBackGround();
         ShowCharacter();
         ShowSourceImage();
@@ -115,11 +117,20 @@ public class StoryViewer : MonoBehaviour
     {
         puzzleManager.OnPuzzle();
     }
+
+    public void PuzzleBoolean()
+    {
+        string str = storyManager.ReturnLine("Puzzle Source");
+
+        if(str.Length > 0)
+        {
+            puzzleManager.OnPuzzle();
+        }
+    }
     //3
     public void ShowSourceImage()
     {
         string str = storyManager.ReturnLine("Source Image");
-
         if (str.Length > 0)
         {
             Debug.Log(str.Length);
@@ -144,7 +155,6 @@ public class StoryViewer : MonoBehaviour
     {
         string str = storyManager.ReturnLine("Character Image");
         
-
         if (str.Length > 0)
         {
             Debug.Log(str.Length);
@@ -152,9 +162,12 @@ public class StoryViewer : MonoBehaviour
             resoureceManager.ShowCharacter(str);
         }
     }
+
     //last
     IEnumerator ReadText()
     {
+        yield return new WaitUntil(() => Fade_InOut.IsFade);
+
         WaitForSeconds waitTime = new WaitForSeconds(0.075f);
 
         scripteText.text = null;
@@ -193,6 +206,7 @@ public class StoryViewer : MonoBehaviour
         scripteText.text = null;
         characterText.text = null;
 
+        PuzzleBoolean();
         ShowBackGround();
         ShowCharacter();
         ShowSourceImage();

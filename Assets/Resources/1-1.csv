@@ -1,7 +1,12 @@
-﻿Speaker,Text,Character Image,C_position,C_drecion,Source Image,S_position,S_drection,Background,B_drection,Sound
-???,하아... 하아...,,,,,,,1,3,
- ,,,,,1,1,5,,,
-???,하아... 하아...,,,,,,,,,
- ,,,,,2,1,5,,,
- ,,,,,3,1,5,,,
- ,,,,,,,,,,
+﻿Speaker,Text,Character Image,C_position,C_drection,Source Image,S_position,S_drection,Background,B_drection,Puzzle Source,Sound,,Position Number,Position,,Drection Number,Description
+???,"""하아...""",,,,,,,Running_Boy,3,,,,0,Left,,1,나타나기
+???,"""안... 돼...""",,,,,,,,,,,,1,Middle,,2,사라지기
+???,"""집이...""",,,,,,,,,,,,2,Right,,3,서서히 나타나기
+ ,,,,,Burning_House,1,5,,,,,,,,,4,서서히 사라지기
+???,"""하아... 하아...""",,,,,,,,,,,,,,,5,서서히 나타나고 서서히 사라지기
+???,얼마나 달렸을까,,,,,,,,,,,,,,,,
+ ,,,,,Breathless_Nose&Mouth_CloseUp,1,5,,,,,,,,,,
+???,"""하아... 하아...""",,,,,,,,,,,,,,,,
+ ,,,,,Running_Leg_CloseUp,1,5,,,,,,,,,,
+???,그렇게 나는 나를 잃었다,,,,,,,,,,,,,,,,
+ ,,,,,,,,Running_Boy,4,,,,,,,,
