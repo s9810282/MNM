@@ -13,13 +13,13 @@ public class Fade_InOut
     float end;
     float time = 0;
 
-    static bool isFade;
-    public static bool IsFade { get { return isFade; } set { isFade = value; } }
+    static bool isFadeEnd;
+    public static bool IsFadeEnd { get { return isFadeEnd; } set { isFadeEnd = value; } }
 
-    public void FadeIn(MonoBehaviour player, Image fadeObj, float _time = 1.5f) 
+    public void FadeIn(MonoBehaviour player, Image fadeObj, float _time = 1.5f, float _start = 1f) 
     {
         animtime = _time;
-        player.StartCoroutine(FadeIn(fadeObj));
+        player.StartCoroutine(FadeIn(fadeObj, _start));
     }
 
     public void FadeIn(MonoBehaviour player, Text fadeObj, float _time = 1.5f)
@@ -82,18 +82,18 @@ public class Fade_InOut
     }
 
 
-    IEnumerator FadeIn(Image fadeobj)
+    IEnumerator FadeIn(Image fadeobj, float _end = 1)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 0;
-        float end = 1;
+        float end = _end;
         float time = 0;
 
         Color color = fadeobj.color;
         color.a = Mathf.Lerp(start, end, time);
 
-        while (color.a < 1f)
+        while (color.a < _end)
         {
             time += Time.deltaTime / animtime;
 
@@ -104,13 +104,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
 ;
     }  //배경이 나타남
 
     IEnumerator FadeIn(Text fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 0;
         float end = 1;
@@ -130,14 +130,14 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
         ;
     }
 
 
     IEnumerator FadeOut(Image fadeobj)
     {
-        isFade = false ;
+        isFadeEnd = false ;
 
         float start = 1;
         float end = 0;
@@ -157,13 +157,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
 
     }  //배경이 사라짐
 
     IEnumerator FadeOut(Text fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 1;
         float end = 0;
@@ -183,14 +183,14 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
 
     }  
 
 
     IEnumerator FadeInFill(Image fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 0;
         float end = 1;
@@ -210,13 +210,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
         
     }  //배경이 나타남
 
     IEnumerator FadeOutFill(Image fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 1;
         float end = 09;
@@ -236,14 +236,14 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
 
     }  //배경이 나
 
 
     IEnumerator FadeIn(SkeletonGraphic fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 0;
         float end = 1;
@@ -263,13 +263,13 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
         
     }  //캐릭터가 나타남
 
     IEnumerator FadeOut(SkeletonGraphic fadeobj)
     {
-        isFade = false;
+        isFadeEnd = false;
 
         float start = 1;
         float end = 0;
@@ -289,7 +289,7 @@ public class Fade_InOut
             yield return null;
         }
 
-        isFade = true;
+        isFadeEnd = true;
 
     }  //캐릭터가 사라짐
 

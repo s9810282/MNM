@@ -43,7 +43,9 @@ public class LogicalFindColor : Puzzle
         }
 
         answer.gameObject.SetActive(false);
-        StartCoroutine(ShowAnswerResultText(str));
+        //StartCoroutine(ShowAnswerResultText(str));
+
+        PuzzleManager.Instance.ChkAnswer(str);
     }
 
     public override IEnumerator ShowAnswerResultText(string str)

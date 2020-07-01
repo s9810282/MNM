@@ -71,12 +71,12 @@ public class Character : StatementOBJ
     {
         fade_InOut.FadeOut(this, spineCharacter, 0.7f);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         spineCharacter.skeletonDataAsset = dic_characterSprites[sourceName];
         fade_InOut.FadeIn(this, spineCharacter, 0.7f);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
     public override IEnumerator SlowFadeIn(string sourceName)
@@ -89,7 +89,7 @@ public class Character : StatementOBJ
 
         fade_InOut.FadeIn(this, spineCharacter, 0.7f);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
         spineCharacter.enabled = true;
     }
 
@@ -97,7 +97,7 @@ public class Character : StatementOBJ
     {
         fade_InOut.FadeOut(this, spineCharacter, 0.7f);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         spineCharacter.gameObject.SetActive(false);
 

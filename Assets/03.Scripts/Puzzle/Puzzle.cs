@@ -8,11 +8,8 @@ public class Puzzle : MonoBehaviour
     [Header("Puzzle & Answer")]
     [SerializeField] protected Answer answer;
     [SerializeField] protected Image[] puzzleComponent;
-    [SerializeField] protected Text puzzleQuestionText;
 
     [Header("Puzzle Question")]
-    [TextArea]
-    [SerializeField] protected string puzzleQuestionExposition;
     [TextArea]
     [SerializeField] protected string puzzleQuestion;
 
@@ -30,23 +27,11 @@ public class Puzzle : MonoBehaviour
     protected bool isPuzzleText;
     protected bool isCorrect;
 
-    public string PuzzleQuestionExposition { get { return puzzleQuestionExposition; } }
     public string PuzzleQuestion { get { return puzzleQuestion; } }
 
-    public Text PuzzleQuestionText { get { return puzzleQuestionText; } }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string FileName { get { return fileName; } set { fileName = value; } }
+    public bool IsPuzzleText { get { return isPuzzleText; } set { isPuzzleText = value; } }
+    public bool IsCorrect { get { return isCorrect; } set { isCorrect = value; } }
 
     public void StartResetField()
     {
@@ -54,18 +39,15 @@ public class Puzzle : MonoBehaviour
         isPuzzleText = false;
     }
 
-
     public virtual void PuzzleStart()
     {
-        gameObject.SetActive(true);;
-
         foreach (var item in puzzleComponent)
         {
             item.gameObject.SetActive(true);
             fade_InOut.FadeIn(this, item);
         }
 
-    } //임시로 제작 추후 변경 예정
+    } 
 
     public virtual void PuzzleEnd()
     {
@@ -78,20 +60,12 @@ public class Puzzle : MonoBehaviour
     } //임시로 제작 추후 변경 예정
 
 
-
-    public virtual void ResetBtn()
+    public void OnAnswer()
     {
-        if (isPuzzleText)
-            return;
-
+        answer.gameObject.SetActive(true);
     }
 
-    public virtual void HintBtn()
-    {
-        if (isPuzzleText)
-            return;
-
-    }   
+    //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
     public virtual void CheckAnswer()
     {
@@ -105,7 +79,7 @@ public class Puzzle : MonoBehaviour
 
     IEnumerator SetAcitivityFalse(GameObject obj)
     {
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         obj.SetActive(false);
     }

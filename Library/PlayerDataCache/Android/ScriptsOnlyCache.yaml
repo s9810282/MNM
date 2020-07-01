@@ -12,6 +12,7 @@ ScriptsOnlyBuild:
     - SelectionAnswer
     - SourceImage
     - StoryViewer
+    - TitleManager
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
@@ -29,11 +30,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Mask
-    - UnityEngine.UI.Outline
     - UnityEngine.UI.RawImage
-    - UnityEngine.UI.ScrollRect
-    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
     - UnityEngine.UI.Text
     spine-unity.dll:
     - Spine.Unity.SkeletonDataAsset
@@ -53,34 +51,34 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9748}
+      Script: {instanceID: 9750}
     - Class: 114
-      Script: {instanceID: 9916}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 9960}
+      Script: {instanceID: 9964}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10378}
+      Script: {instanceID: 10382}
     - Class: 114
-      Script: {instanceID: 10810}
+      Script: {instanceID: 10814}
     - Class: 114
-      Script: {instanceID: 10832}
+      Script: {instanceID: 10836}
     - Class: 114
-      Script: {instanceID: 11166}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11344}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11740}
+    - Class: 114
+      Script: {instanceID: 11776}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -115,64 +113,56 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9748}
+      Script: {instanceID: 9750}
     - Class: 114
-      Script: {instanceID: 9916}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 9918}
+      Script: {instanceID: 9954}
     - Class: 114
-      Script: {instanceID: 9950}
+      Script: {instanceID: 9964}
     - Class: 114
-      Script: {instanceID: 9960}
+      Script: {instanceID: 10168}
     - Class: 114
-      Script: {instanceID: 10164}
+      Script: {instanceID: 10382}
     - Class: 114
-      Script: {instanceID: 10282}
+      Script: {instanceID: 10412}
     - Class: 114
-      Script: {instanceID: 10378}
+      Script: {instanceID: 10456}
     - Class: 114
-      Script: {instanceID: 10408}
+      Script: {instanceID: 10814}
     - Class: 114
-      Script: {instanceID: 10452}
+      Script: {instanceID: 10836}
     - Class: 114
-      Script: {instanceID: 10598}
+      Script: {instanceID: 10844}
     - Class: 114
-      Script: {instanceID: 10810}
+      Script: {instanceID: 10870}
     - Class: 114
-      Script: {instanceID: 10832}
+      Script: {instanceID: 10988}
     - Class: 114
-      Script: {instanceID: 10840}
+      Script: {instanceID: 11018}
     - Class: 114
-      Script: {instanceID: 10864}
+      Script: {instanceID: 11052}
     - Class: 114
-      Script: {instanceID: 10982}
+      Script: {instanceID: 11102}
     - Class: 114
-      Script: {instanceID: 11012}
+      Script: {instanceID: 11350}
     - Class: 114
-      Script: {instanceID: 11046}
-    - Class: 114
-      Script: {instanceID: 11096}
-    - Class: 114
-      Script: {instanceID: 11344}
-    - Class: 114
-      Script: {instanceID: 11366}
-    - Class: 114
-      Script: {instanceID: 11678}
-    - Class: 114
-      Script: {instanceID: 11698}
+      Script: {instanceID: 11372}
     - Class: 114
       Script: {instanceID: 11704}
     - Class: 114
-      Script: {instanceID: 11734}
+      Script: {instanceID: 11710}
     - Class: 114
-      Script: {instanceID: 11792}
+      Script: {instanceID: 11740}
+    - Class: 114
+      Script: {instanceID: 11776}
+    - Class: 114
+      Script: {instanceID: 11798}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
       Script: {instanceID: 0}
     - Class: 157
-      Script: {instanceID: 0}
-    - Class: 212
       Script: {instanceID: 0}
     - Class: 213
       Script: {instanceID: 0}
@@ -181,6 +171,51 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    Assets/00.Scenes/Title.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9750}
+    - Class: 114
+      Script: {instanceID: 9964}
+    - Class: 114
+      Script: {instanceID: 10382}
+    - Class: 114
+      Script: {instanceID: 10866}
+    - Class: 114
+      Script: {instanceID: 11350}
+    - Class: 114
+      Script: {instanceID: 11740}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -263,7 +298,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 45408ca1d9d454399a2ff352ef661778
+      Hash: a2268ac8b1112a180029a0705ae66c5d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LogicalFindColor
@@ -341,7 +376,7 @@ ScriptsOnlyBuild:
     className: AspectRatioFitter
   - hash:
       serializedVersion: 2
-      Hash: 0b6ceec11ac0b00dfaa599e5cc044657
+      Hash: e9f6411469405be817fd2cd0deb1fe1d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SaveSlot
@@ -467,7 +502,7 @@ ScriptsOnlyBuild:
     className: TMP_Asset
   - hash:
       serializedVersion: 2
-      Hash: 589c0208e780b2a8747b3f6249d98bea
+      Hash: 386c244e097dc70473541cb571a4c1f2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Scene_UI
@@ -515,7 +550,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 45408ca1d9d454399a2ff352ef661778
+      Hash: a2268ac8b1112a180029a0705ae66c5d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Puzzle
@@ -543,6 +578,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ResourceManager
+  - hash:
+      serializedVersion: 2
+      Hash: 192337b3dfa9963c648b6b38251f5ad3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TitleManager
   - hash:
       serializedVersion: 2
       Hash: 5638704286073716143cc2ca580b50fc
@@ -587,7 +628,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: 9b6d7a34782a5ed3b3b843b436f0fb9f
+      Hash: 04c340a96f10f48985c6403b08d15667
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PuzzleManager
@@ -653,7 +694,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 30560a330792ece6b5a4c1640a7e9fc4
+      Hash: 7f6516b8418e8c3a7b1da77c6b5a4dec
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Main_UI
@@ -689,7 +730,7 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 94c7ee87933559242e2c6d1972c88b23
+      Hash: b921db4fa96fc20c6a144a4e0c3b1ccf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Ingame_UI
@@ -845,6 +886,7 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   platform: 13
   scenePathNames:
+  - Assets/00.Scenes/Title.unity
   - Assets/00.Scenes/Main.unity
   - Assets/00.Scenes/Play.unity
-  playerPath: D:/Unity 2019.2.13f1/Me and Me/TestFile ver.5.apk
+  playerPath: D:/Unity 2019.2.13f1/Me and Me/TestFile ver.10.apk

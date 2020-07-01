@@ -15,6 +15,8 @@ public class SaveSlot : MonoBehaviour
 
     [SerializeField] int dataCount;
 
+    [SerializeField] Image test;
+
     [Header("Slot Component")]
 
     [SerializeField] RawImage image;
@@ -103,6 +105,7 @@ public class SaveSlot : MonoBehaviour
     //SaveData의 데이터를 슬롯에다가 적용
     public void ApplyData()
     {
+
         if (File.Exists(Application.persistentDataPath + _path))
             File.Delete(Application.persistentDataPath + _path);
 
@@ -115,11 +118,15 @@ public class SaveSlot : MonoBehaviour
         _SaveData.csvFileLine = StoryManager.Instance.CurrentLine;
         _SaveData.csvFileNum = StoryManager.Instance.FileNum;
 
-        GameDataManager.Instance.Save(_saveData, _path);
 
         FileList.Instance.Binary_Path.Remove(dataCount);
         FileList.Instance.Binary_Path.Add(dataCount, Application.persistentDataPath + _path);
+
+
         FileList.Instance.SaveBinaryPathToCSV();
+
+
+        GameDataManager.Instance.Save(_saveData, _path);
 
         Debug.Log(Application.persistentDataPath + _path);
 
@@ -129,6 +136,7 @@ public class SaveSlot : MonoBehaviour
 
         noData_Slot.gameObject.SetActive(false);
         data_slot.gameObject.SetActive(true);
+
     }
 
     //Load버튼을 통해 Load하여 시작

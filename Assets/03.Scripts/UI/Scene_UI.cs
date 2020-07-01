@@ -18,14 +18,14 @@ public class Scene_UI : MonoBehaviour
     [SerializeField] protected Image fade_BackGround;
 
     [Header("Option Slider")]
-    [SerializeField] Slider mainSoundSlider;
-    [SerializeField] Slider soundEffectSlider;
-    [SerializeField] Slider bgmSoundSlider;
+    [SerializeField] protected Slider mainSoundSlider;
+    [SerializeField] protected Slider soundEffectSlider;
+    [SerializeField] protected Slider bgmSoundSlider;
 
-    [SerializeField] Slider textSpeedSlider;
+    [SerializeField] protected Slider textSpeedSlider;
 
-    [SerializeField] RawImage ingameImage;
-    [SerializeField] Text currentText;
+    [SerializeField] protected RawImage ingameImage;
+    [SerializeField] protected Text currentText;
 
     [Space(3f)]
 
@@ -40,8 +40,10 @@ public class Scene_UI : MonoBehaviour
     void Awake()
     {
         //SlotManager.Instance.SaveSlots();
+        Debug.Log(Application.dataPath);
     }
 
+    //Scene Fade Fun
     public void SceneStart()
     {
         fade_InOut = new Fade_InOut();
@@ -53,7 +55,13 @@ public class Scene_UI : MonoBehaviour
         fade_InOut.MoveScene(this, fade_BackGround, "Play");
     }
 
+    public void MoveScene(string str = "Play")
+    {
+        fade_InOut.MoveScene(this, fade_BackGround, str);
+    }
 
+
+    //Option Slider Func
     public void MainSoundControl(Slider slider)
     {
         SoundManager.Instance.SoundValue.MainSoundValue = slider.value;
@@ -75,15 +83,13 @@ public class Scene_UI : MonoBehaviour
     }
 
 
-    public void SettingOptionSlider()
+    //OnOption Setting
+    public virtual void SettingOptionSlider()
     {
         mainSoundSlider.value = SoundManager.Instance.SoundValue.MainSoundValue;
         soundEffectSlider.value = SoundManager.Instance.SoundValue.SoundEffectValue;
         bgmSoundSlider.value = SoundManager.Instance.SoundValue.BgmValue;
 
         textSpeedSlider.value = StoryManager.Instance.TextSpeed;
-
-        ingameImage.texture = Screenshot.Instance.Texture;
-        currentText.text = StoryManager.Instance.ReturnLine("Text");
     }
 }

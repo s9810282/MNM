@@ -47,9 +47,19 @@ public class Main_UI : Scene_UI
 
     public void Setting()
     {
-        currentToolText.text = "Setting";
-        toolTab.gameObject.SetActive(true);
+        //currentToolText.text = "Setting";
+        //toolTab.gameObject.SetActive(true);
         option_tab.gameObject.SetActive(true);
+    }
+
+    public void OffSetting()
+    {
+        option_tab.gameObject.SetActive(false);
+    }
+
+    public override void SettingOptionSlider()
+    {
+        base.SettingOptionSlider();
     }
 
     public void Quit()

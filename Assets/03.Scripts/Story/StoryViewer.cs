@@ -55,7 +55,7 @@ public class StoryViewer : MonoBehaviour
             if (storyManager.IsTouchUI)
                 return;
 
-            if (!Fade_InOut.IsFade)
+            if (!Fade_InOut.IsFadeEnd)
                 return;
 
             isTouchDown = true;
@@ -113,11 +113,6 @@ public class StoryViewer : MonoBehaviour
         StartCoroutine(textCoroutine);
     }
 
-    public void PuzzleStart()
-    {
-        puzzleManager.OnPuzzle();
-    }
-
     public void PuzzleBoolean()
     {
         string str = storyManager.ReturnLine("Puzzle Source");
@@ -125,9 +120,10 @@ public class StoryViewer : MonoBehaviour
         if(str.Length > 0)
         {
             storyManager.IsPuzzle = true;
-            puzzleManager.OnPuzzle();
+            puzzleManager.OnPuzzle(/*str(퍼즐 이름)*/);
         }
     }
+
     //3
     public void ShowSourceImage()
     {
@@ -166,7 +162,7 @@ public class StoryViewer : MonoBehaviour
     //last
     IEnumerator ReadText()
     {
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         WaitForSeconds waitTime = new WaitForSeconds(0.075f);
 
@@ -201,7 +197,7 @@ public class StoryViewer : MonoBehaviour
     {
         storyManager.IsLineEnd = false;
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         scripteText.text = null;
         characterText.text = null;

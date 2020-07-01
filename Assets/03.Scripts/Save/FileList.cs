@@ -32,7 +32,7 @@ public class FileList
 
     public void SaveBinaryPathToCSV()
     {
-        using (var writer = new CSVFileWriter("Assets/Resources/Binary_Path.csv"))
+        using (var writer = new CSVFileWriter(Application.dataPath + "/Resources/Binary_Path.csv"))
         {
             List<string> columns = new List<string>() { "Count", "Path" };// making Index Row
 
@@ -61,7 +61,7 @@ public class FileList
         
     public void LoadCSVData()
     {
-        if (File.Exists("Assets/Resources/Binary_Path.csv"))    
+        if (File.Exists(Application.dataPath + "/Resources/Binary_Path.csv"))
         {
             saveData = new List<Dictionary<string, string>>();
             saveData = CSVReader.Read("Binary_Path");
@@ -74,6 +74,7 @@ public class FileList
 
         for(int i = 0; i < saveData.Count; i++)
         {
+            binary_path.Remove(int.Parse(saveData[i]["Count"]));
             binary_path.Add(int.Parse(saveData[i]["Count"]), saveData[i]["Path"]);
             //Debug.Log(binary_path[int.Parse(saveData[i]["Count"])]);
         }

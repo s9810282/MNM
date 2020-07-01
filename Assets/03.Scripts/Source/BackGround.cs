@@ -57,12 +57,12 @@ public class BackGround : StatementOBJ
     {
         fade_InOut.FadeOut(this,backGround);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         backGround.sprite = dic_backGround[sourceName];
         fade_InOut.FadeIn(this, backGround);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
     public override IEnumerator SlowFadeIn(string sourceName)
@@ -70,14 +70,14 @@ public class BackGround : StatementOBJ
         backGround.sprite = dic_backGround[sourceName];
         fade_InOut.FadeIn(this, backGround);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
     public override IEnumerator SlowFadeOut()
     {
         fade_InOut.FadeOut(this, backGround);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
 }

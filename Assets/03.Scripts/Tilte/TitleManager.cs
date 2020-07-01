@@ -45,7 +45,7 @@ public class TitleManager : MonoBehaviour
     IEnumerator StartTitle()
     {
         fade_InOut.SceneStart(this, fadeImage);
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         videoPlayer.Play();
     }

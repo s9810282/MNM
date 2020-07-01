@@ -67,11 +67,11 @@ public class SourceImage : StatementOBJ
 
         fade_InOut.FadeIn(this, sourceImage);
       
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         fade_InOut.FadeOut(this, sourceImage);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
     public override IEnumerator SlowFadeIn(string sourceName)
@@ -82,14 +82,14 @@ public class SourceImage : StatementOBJ
         sourceImage.sprite = dic_sourceImag[sourceName];
         fade_InOut.FadeIn(this, sourceImage);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
     }
 
     public override IEnumerator SlowFadeOut()
     {
         fade_InOut.FadeOut(this, sourceImage);
 
-        yield return new WaitUntil(() => Fade_InOut.IsFade);
+        yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
         sourceImage.sprite = clearImage;
     }

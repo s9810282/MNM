@@ -55,9 +55,7 @@ public class Ingame_UI : Scene_UI
         Screenshot.Instance.CaptureDate = date;
         texture = Screenshot.Instance.Return_Capture(this,_path);
     }
-
-
-    public void OnTool()
+    public void OnTool()    
     {
         StartCoroutine(StartOnTool());
     }
@@ -68,7 +66,6 @@ public class Ingame_UI : Scene_UI
         StoryManager.Instance.IsTouchUI = true;
         toolTab.gameObject.SetActive(true);
     }
-
     public void OffToolTabs()
     {
         StoryManager.Instance.IsTouchUI = false;
@@ -83,9 +80,10 @@ public class Ingame_UI : Scene_UI
         currentToolText.text = "SAVE";
         save_Load_Tab.gameObject.SetActive(true);
     }
-
     public void OnLoadTab()
     {
+        SlotManager.Instance.Ingame_LoadBtn(this);
+
         currentToolText.text = "Load";
         save_Load_Tab.gameObject.SetActive(true);
     }
@@ -96,11 +94,24 @@ public class Ingame_UI : Scene_UI
         StoryManager.Instance.IsTouchUI = true;
         option_tab.gameObject.SetActive(true);
     }
-
     public void OffOption()
     {
         option_tab.gameObject.SetActive(false);
         StoryManager.Instance.IsTouchUI = false;
+    }
+
+    public void GoMain()
+    {
+        MoveScene("Main");
+    }
+
+
+    public override void SettingOptionSlider()
+    {
+        base.SettingOptionSlider();
+
+        ingameImage.texture = Screenshot.Instance.Texture;
+        currentText.text = StoryManager.Instance.ReturnLine("Text");
     }
 
     IEnumerator StartOnTool()
