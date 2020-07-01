@@ -39,7 +39,6 @@ public class StoryViewer : MonoBehaviour
             storyManager.LoadCSV();
 
         StartCoroutine(FadeToStart());
-        Debug.Log(storyManager.Data[3]["Source Image"]);
     }
 
     // Update is called once per frame
@@ -90,10 +89,7 @@ public class StoryViewer : MonoBehaviour
 
         //만약 다음줄이 없다면 파일을 새로 읽음
         if (storyManager.Data.Count <= storyManager.CurrentLine)
-        {
-            Debug.Log(storyManager.Data.Count);
-            Debug.Log(storyManager.CurrentLine);
-
+        {   
             if (CSV_FileNames[storyManager.FileNum] == null)
                 return;
 
@@ -105,6 +101,10 @@ public class StoryViewer : MonoBehaviour
         characterText.text = null;
 
         PuzzleBoolean();
+
+        if (storyManager.IsPuzzle)
+            return;
+
         ShowBackGround();
         ShowCharacter();
         ShowSourceImage();
@@ -124,6 +124,7 @@ public class StoryViewer : MonoBehaviour
 
         if(str.Length > 0)
         {
+            storyManager.IsPuzzle = true;
             puzzleManager.OnPuzzle();
         }
     }
@@ -145,7 +146,6 @@ public class StoryViewer : MonoBehaviour
 
         if (str.Length > 0)
         {
-            Debug.Log(str.Length);
             Debug.Log("BackGround Image : " + str);
             resoureceManager.ShowBackGround(str);
         }
@@ -207,6 +207,10 @@ public class StoryViewer : MonoBehaviour
         characterText.text = null;
 
         PuzzleBoolean();
+
+        if (storyManager.IsPuzzle)
+            yield break;
+
         ShowBackGround();
         ShowCharacter();
         ShowSourceImage();

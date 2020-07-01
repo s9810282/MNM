@@ -79,7 +79,6 @@ public class SaveSlot : MonoBehaviour
         isLoad = true;
 
         _saveData = GameDataManager.Instance.Load(_saveData, dataPath);
-        Debug.Log(_saveData.captureImagePath);
 
         image.texture = Screenshot.Instance.GetPhoto(_saveData.captureImagePath);
         dateText.text = _saveData.saveDate;

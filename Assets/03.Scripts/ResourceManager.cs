@@ -50,9 +50,6 @@ public class ResourceManager : MonoBehaviour
         int characterPos = int.Parse(StoryManager.Instance.ReturnLine("C_position"));
         int characterType = int.Parse(StoryManager.Instance.ReturnLine("C_drection"));
 
-        Debug.Log(characterPos);
-        Debug.Log(characterType);
-
         spineCharacters[characterPos].stateChangeFunc[characterType - 1].Invoke(str);
     }
 }

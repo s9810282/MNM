@@ -263,7 +263,7 @@ ScriptsOnlyBuild:
     className: TouchInputModule
   - hash:
       serializedVersion: 2
-      Hash: 77ca4ae57741f0b2bf2dc593782ba218
+      Hash: 45408ca1d9d454399a2ff352ef661778
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LogicalFindColor
@@ -515,7 +515,7 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
-      Hash: 77ca4ae57741f0b2bf2dc593782ba218
+      Hash: 45408ca1d9d454399a2ff352ef661778
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Puzzle
@@ -847,4 +847,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/00.Scenes/Main.unity
   - Assets/00.Scenes/Play.unity
-  playerPath: D:/Unity 2019.2.13f1/Me and Me/TestFile.apk
+  playerPath: D:/Unity 2019.2.13f1/Me and Me/TestFile ver.5.apk

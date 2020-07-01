@@ -1,4 +1,4 @@
 ﻿Speaker,Text,Character Image,C_position,C_drection,Source Image,S_position,S_drection,Background,B_drection,Puzzle Source,Sound,,Position Number,Position,,Drection Number,Description
-Girl,"""3명의 논리학자와 2개의 모자... 천천히 생각해봐""",Girl,0,1,,,,,,Find_Color,,,0,Left,,1,나타나기
-Girl,"""모르겠다면 오른쪽 하단의 힌트를 이용해봐""",,,,,,,,,,,,1,Middle,,2,사라지기
+Girl,\"3명의 논리학자와 2개의 모자... 천천히 생각해봐"\,Girl,0,1,,,,,,Find_Color,,,0,Left,,1,나타나기
+Girl,\"모르겠다면 오른쪽 하단의 힌트를 이용해봐"\,,,,,,,,,,,,1,Middle,,2,사라지기
  ,,Girl,0,2,,,,,,,,,2,Right,,3,서서히 나타나기

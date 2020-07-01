@@ -7,9 +7,7 @@ public class Puzzle : MonoBehaviour
 {
     [Header("Puzzle & Answer")]
     [SerializeField] protected Answer answer;
-
     [SerializeField] protected Image[] puzzleComponent;
-
     [SerializeField] protected Text puzzleQuestionText;
 
     [Header("Puzzle Question")]
@@ -18,13 +16,19 @@ public class Puzzle : MonoBehaviour
     [TextArea]
     [SerializeField] protected string puzzleQuestion;
 
+
     [Header("Puzzle Answer TextFile Name")]
-    [SerializeField] protected string aWrongText;
-    [SerializeField] protected string correctAnswer;
+    [SerializeField] protected string correctAnswerScripts;
+    [SerializeField] protected string aWrongAnswerScripts;
+
+
+    [Header("Next FileName")]
+    [SerializeField] protected string fileName;
 
     [SerializeField] protected Fade_InOut fade_InOut;
 
     protected bool isPuzzleText;
+    protected bool isCorrect;
 
     public string PuzzleQuestionExposition { get { return puzzleQuestionExposition; } }
     public string PuzzleQuestion { get { return puzzleQuestion; } }
@@ -50,11 +54,10 @@ public class Puzzle : MonoBehaviour
         isPuzzleText = false;
     }
 
+
     public virtual void PuzzleStart()
     {
-        gameObject.SetActive(true);
-
-        StoryManager.Instance.IsPuzzle = true;
+        gameObject.SetActive(true);;
 
         foreach (var item in puzzleComponent)
         {
@@ -64,20 +67,46 @@ public class Puzzle : MonoBehaviour
 
     } //임시로 제작 추후 변경 예정
 
+    public virtual void PuzzleEnd()
+    {
+        foreach (var item in puzzleComponent)
+        {
+            fade_InOut.FadeOut(this, item);
+            StartCoroutine(SetAcitivityFalse(item.gameObject));
+        }
+        //gameObject.SetActive(false);
+    } //임시로 제작 추후 변경 예정
+
+
 
     public virtual void ResetBtn()
     {
+        if (isPuzzleText)
+            return;
 
     }
 
     public virtual void HintBtn()
     {
+        if (isPuzzleText)
+            return;
 
     }   
-
 
     public virtual void CheckAnswer()
     {
 
+    }
+    
+    public virtual IEnumerator ShowAnswerResultText(string str)
+    {
+        yield return null;
+    }
+
+    IEnumerator SetAcitivityFalse(GameObject obj)
+    {
+        yield return new WaitUntil(() => Fade_InOut.IsFade);
+
+        obj.SetActive(false);
     }
 }

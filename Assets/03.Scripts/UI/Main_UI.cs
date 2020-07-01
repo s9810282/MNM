@@ -8,11 +8,6 @@ public class Main_UI : Scene_UI
 {
     [SerializeField] GameObject album_Tab;
 
-    private void Awake()
-    {
-        Screen.SetResolution(1920, 1080, false);
-    }
-
     private void Start()
     {
         SceneStart();
@@ -54,7 +49,7 @@ public class Main_UI : Scene_UI
     {
         currentToolText.text = "Setting";
         toolTab.gameObject.SetActive(true);
-        setting_Tab.gameObject.SetActive(true);
+        option_tab.gameObject.SetActive(true);
     }
 
     public void Quit()

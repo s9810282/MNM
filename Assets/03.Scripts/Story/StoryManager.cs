@@ -30,6 +30,8 @@ public class StoryManager
 
     private int playTime;
 
+    private float textSpeed;
+
     private bool isNewGame = true;
     private bool isNeverSkip = false;
     private bool isLineEnd = false;
@@ -49,6 +51,8 @@ public class StoryManager
     public int FileNum { get { return fileNum; } set { fileNum = value; } }
 
     public int PlayTime { get { return playTime; } set { playTime = value; } }
+
+    public float TextSpeed { get { return textSpeed; } set { textSpeed = value; } }
 
     public bool IsNewGame { get { return isNewGame; } set { isNewGame = value; } }
     public bool IsNeverSkip { get { return isNeverSkip; } set { isNeverSkip = value; } }
@@ -91,8 +95,7 @@ public class StoryManager
 
     public List<Dictionary<string, string>> LoadCSV()
     {
-        data = CSVReader.Read(fileName);
-        
+        data = CSVReader.Read(fileName);       
         return data;
     }
 

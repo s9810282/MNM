@@ -56,10 +56,12 @@ public class Ingame_UI : Scene_UI
         texture = Screenshot.Instance.Return_Capture(this,_path);
     }
 
+
     public void OnTool()
     {
         StartCoroutine(StartOnTool());
     }
+
 
     public void OnToolTabs()
     {
@@ -73,6 +75,7 @@ public class Ingame_UI : Scene_UI
         toolTab.gameObject.SetActive(false);
     }
 
+
     public void OnSaveTab()
     {
         SlotManager.Instance.Ingame_SaveBtn();
@@ -85,6 +88,19 @@ public class Ingame_UI : Scene_UI
     {
         currentToolText.text = "Load";
         save_Load_Tab.gameObject.SetActive(true);
+    }
+
+
+    public void OnOption()
+    {
+        StoryManager.Instance.IsTouchUI = true;
+        option_tab.gameObject.SetActive(true);
+    }
+
+    public void OffOption()
+    {
+        option_tab.gameObject.SetActive(false);
+        StoryManager.Instance.IsTouchUI = false;
     }
 
     IEnumerator StartOnTool()

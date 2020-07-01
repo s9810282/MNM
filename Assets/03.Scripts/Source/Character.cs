@@ -30,7 +30,6 @@ public class Character : StatementOBJ
         for (int i = 0; i < characterSpriteName.Length; i++)
             dic_characterSprites.Add(characterSpriteName[i], characterSprites[i]);
 
-        Debug.Log(dic_characterSprites["Girl"].name);
         //SlowlyFadeIn("Girl");
     }
 

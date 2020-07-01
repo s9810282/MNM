@@ -36,7 +36,6 @@ public class SlotManager
     {
         foreach(var item in FileList.Instance.Binary_Path)
         {
-            Debug.Log(item.Key);
             Debug.Log(item.Value);
 
             saveSlots[item.Key].Load_SetData(item.Value);

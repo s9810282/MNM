@@ -20,21 +20,22 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-
+    [Header("Puzzle")]
     [SerializeField] Puzzle puzzle;
-
     [SerializeField] Image[] puzzleComponent;
-
     [SerializeField] GameObject option;
 
     [Space(3f)]
     [Header("Viewer")]
-
     [SerializeField] Text scriptText; //대사 및 문제 설명 text
-
     [SerializeField] Text characterText; //말하는 이의 텍스트
-    
-    Fade_InOut fade_InOut;
+
+
+    public Text ScriptText { get { return scriptText; } set { scriptText = value; } }
+    public Text CharacterText { get { return characterText; } set { characterText = value; } }
+
+
+    private Fade_InOut fade_InOut;
 
     private List<Dictionary<string, string>> data = new List<Dictionary<string, string>>();
     private int currentLine = 0;
@@ -62,12 +63,23 @@ public class PuzzleManager : MonoBehaviour
 
         puzzle.gameObject.SetActive(true);
 
-
-
         ReadPuzzleText(str);
         StartCoroutine_ReadText();
 
     } //나중에 str값에 따라 PuzzleText를 읽고 첫줄에 있는 퍼즐을 나타나게함
+
+    public void OffPuzzle(string str = null)
+    {      
+        foreach (var item in puzzleComponent)
+        {
+            fade_InOut.FadeOut(this, item);
+            StartCoroutine(SetAcitivityFalse(item.gameObject));
+        }
+
+        //puzzle.gameObject.SetActive(false);
+
+        StoryManager.Instance.IsPuzzle = false;
+    }
 
 
     public void Replay()
@@ -80,6 +92,15 @@ public class PuzzleManager : MonoBehaviour
         option.gameObject.SetActive(true);
     }
 
+
+
+    public void ResetText()
+    {
+        scriptText.text = null;
+        characterText.text = null;
+
+        scriptText.alignment = TextAnchor.UpperLeft;
+    }
 
     public void EndText()
     {
@@ -149,4 +170,11 @@ public class PuzzleManager : MonoBehaviour
 
         yield break;
     } //텍스트 한줄 출력
+
+    IEnumerator SetAcitivityFalse(GameObject obj)
+    {
+        yield return new WaitUntil(() => Fade_InOut.IsFade);
+
+        obj.SetActive(false);
+    }
 }

@@ -81,6 +81,7 @@
     <Compile Include="Assets\03.Scripts\Save\SaveData.cs" />
     <Compile Include="Assets\03.Scripts\Save\SaveSlot.cs" />
     <Compile Include="Assets\03.Scripts\Save\SlotManager.cs" />
+    <Compile Include="Assets\03.Scripts\Sound\SoundManager.cs" />
     <Compile Include="Assets\03.Scripts\Source\BackGround.cs" />
     <Compile Include="Assets\03.Scripts\Source\Character.cs" />
     <Compile Include="Assets\03.Scripts\Source\SourceImage.cs" />
@@ -88,6 +89,7 @@
     <Compile Include="Assets\03.Scripts\Story\StoryManager.cs" />
     <Compile Include="Assets\03.Scripts\Story\StoryViewer.cs" />
     <Compile Include="Assets\03.Scripts\Test.cs" />
+    <Compile Include="Assets\03.Scripts\Tilte\TitleManager.cs" />
     <Compile Include="Assets\03.Scripts\Tool\Fade_InOut.cs" />
     <Compile Include="Assets\03.Scripts\Tool\GenericSingleton.cs" />
     <Compile Include="Assets\03.Scripts\Tool\Screenshot.cs" />
@@ -96,11 +98,10 @@
     <Compile Include="Assets\03.Scripts\UI\Main_UI.cs" />
     <Compile Include="Assets\03.Scripts\UI\Scene_UI.cs" />
     <None Include="Assets\boy\boy.atlas.txt" />
-    <None Include="Assets\leader\leader\LEADER.atlas.txt" />
     <None Include="Assets\Sample\새 폴더\hero-pro.atlas.txt" />
+    <None Include="Assets\leader\READER.atlas.txt" />
     <None Include="Assets\Spine\version.txt" />
     <None Include="Assets\Sample\새 폴더\hero-pro.json.txt" />
-    <None Include="Assets\leader\leader\READER.atlas.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity 2019.2.13f1/Me and Me/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

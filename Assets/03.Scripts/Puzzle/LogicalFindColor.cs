@@ -23,20 +23,63 @@ public class LogicalFindColor : Puzzle
         base.PuzzleStart();      
     }
 
+
+
+
+
     public override void CheckAnswer()
     {
+        string str;
+
         if (answer.SelectNum == 2)
         {
-            Debug.Log("Sucess");
-            PuzzleManager.Instance.ReadPuzzleText(correctAnswer);
+            isCorrect = true;
+            str = correctAnswerScripts;
         }
         else
         {
-            Debug.Log("Fail");
-            PuzzleManager.Instance.ReadPuzzleText(aWrongText);
+            isCorrect = false;
+            str = aWrongAnswerScripts;
         }
 
         answer.gameObject.SetActive(false);
-        PuzzleManager.Instance.StartCoroutine_ReadText();
+        StartCoroutine(ShowAnswerResultText(str));
+    }
+
+    public override IEnumerator ShowAnswerResultText(string str)
+    {
+        isPuzzleText = true;
+
+        WaitForSeconds waitTime = new WaitForSeconds(0.075f);
+
+        PuzzleManager.Instance.CharacterText.text = "Girl";
+        PuzzleManager.Instance.ScriptText.text = null;
+
+
+        for (int i = 0; i < str.Length; i++)
+        {
+            PuzzleManager.Instance.ScriptText.text += str[i];
+            yield return waitTime;
+        }
+
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+        isPuzzleText = false;
+
+        if (isCorrect)
+        {
+            StoryManager.Instance.LoadCSV(fileName);
+            StoryManager.Instance.CurrentLine--;
+
+            PuzzleManager.Instance.ResetText();
+            PuzzleManager.Instance.OffPuzzle();
+            PuzzleEnd();
+        }
+        else
+        {
+            PuzzleManager.Instance.ResetText();
+            PuzzleManager.Instance.EndText();
+        }       
+
+        yield return null;
     }
 }
