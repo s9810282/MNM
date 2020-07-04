@@ -95,8 +95,15 @@ public class StoryViewer : MonoBehaviour
 
             Debug.Log("Next File");
             storyManager.LoadCSV(CSV_FileNames[storyManager.FileNum]);
+
+            ReadLine();
         }
 
+        ReadLine();
+    }
+
+    public void ReadLine()
+    {
         scripteText.text = null;
         characterText.text = null;
 
@@ -199,19 +206,7 @@ public class StoryViewer : MonoBehaviour
 
         yield return new WaitUntil(() => Fade_InOut.IsFadeEnd);
 
-        scripteText.text = null;
-        characterText.text = null;
-
-        PuzzleBoolean();
-
-        if (storyManager.IsPuzzle)
-            yield break;
-
-        ShowBackGround();
-        ShowCharacter();
-        ShowSourceImage();
-
-        StartCoroutine(textCoroutine);
+        ReadLine();
     }
 
     IEnumerator TouchDown(float time)
